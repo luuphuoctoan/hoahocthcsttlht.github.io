@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiến thức hóa học</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 1650px;
+            background-color: hsl(237, 61%, 83%);
+            /* footer */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main{
+            flex: 1;
+        }
+        header {
+            background-color: #21537a;
+            color: #fff;
+            padding: 1px 0;
+            padding-left: 15px;
+            text-align: left;
+            left: 20px;
+            height: 70px;
+            display: block;
+            position: flex;
+        }
+        .container {
+            top: 10px;
+            width: 90%;
+            left: 10%;
+            padding-right: 10%;
+            margin: auto;
+            /* overflow: hidden; */
+            display: block;
+            position: absolute;
+        }
+        .home{
+            /* color:#003b67; */
+            color:#efe11e;
+            /* background-color: #3b76b586; */
+            border-radius: 5px;
+            
+        }
+
+        .product {
+            top: 20em;
+            border: 1px solid #ccc;
+            padding: 2px;   
+            left: 2%;
+            right: 2%;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            position: absolute;
+            height: 300px;
+        }
+        .product h2 {
+            color: #333;
+            padding: 3px;
+        }
+        .product p {
+            color: #666;
+            padding-left: 5px;
+        }
+        .product .price {
+            color: #b12704;
+            font-size: 18px;
+        }
+
+        .background img{
+            z-index: -1;
+            width: 90%;
+            left: 5%;
+            right: 5%;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+           display: block;
+           position: absolute;
+        }
+        @media (max-width: 700px) {
+            .container{
+                top: 10%;
+                width: 90%;
+                left: 2.5%;
+                right: 2.5%;
+                margin: auto;
+                /* overflow: hidden; */
+                /* display: block;
+                position: absolute; */
+            }
+            .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }
+        @media (max-width: 820px) {
+        .product {
+            margin: center; /* Căn giữa phần tử */
+            width: 93%; /* Chiếm 95% chiều rộng trên thiết bị điện thoại */
+            left: 3%; /* Căn giữa phần tử */
+            right: 3%; /* Căn giữa phần tử */
+            top: 25%; /* Giảm khoảng cách từ trên xuống */
+            padding: 3px; /* Giảm padding để phù hợp với màn hình nhỏ */
+            /* height: 75%; */
+            height: 100%;
+        }
+        .bgmo{
+                position: absolute;
+                display: flex;
+                height: 95px;
+                top: 8.5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+                
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 25px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+    }
+        @media (min-width: 820px) {
+            .product {
+                top: 40%;
+                width:95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+            .bgmo{
+                position: absolute;
+                display: flex;
+                height:200px;
+                top: 5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            
+        }
+        .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }
+        @media (min-width: 1024px){
+            /* máy tính/laptop */
+            .product{
+                /* height: 40%; */
+                top: 40% ;
+                width: 81%;
+                left: 3%;
+                right: 3%;
+                padding: 7%;
+                height: 750%;
+            }
+            .bgmo{
+                position: absolute;
+                display: flex;
+                height: 276px;
+                top: 9.5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+                
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+            .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }   
+        @media (min-height: 1366px){
+            .product{
+                height: 30%;
+                top: 25% ;
+                width: 95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+
+        @media (max-width: 800px) and (max-height: 645px) {
+            .hamburger {
+                display: flex;
+                left: 75%;
+                text-align: center;
+                width: 15%;
+            }
+            .menu{
+                display: none;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        @media(min-width:800px) and (max-width: 645px) {
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px; */
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%;
+            }
+            .menu {
+                display: none;
+                width: auto;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        /* menu */
+        .menu {
+            font-family: Arial, sans-serif;
+            z-index: 2;
+            display: flex;
+            text-align: center;
+            font-size: 25px;
+            top: 3%;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding-right: -30px;
+            left: 60%;
+            position: relative;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .menu li {
+            position: relative;
+            display: inline-block;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 35px;
+            display: block;
+            padding: 7px 25px 7px 25px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width:auto;
+        }
+        .menu a:hover {
+            background-color: #3b76b586;
+            border-radius: 20px 10px 20px 0px;
+
+        }
+        .menu li:hover > a {
+            color:#efe11e;
+            /* background-color:; */
+        }
+        .menu ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #15376db1;
+            visibility: hidden;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, visibility 0.3s ease;
+        }
+        .menu ul ul li {
+            display: block;
+        }
+        .menu ul ul a {
+            padding: 10px;
+            padding-right: 6px;
+        }
+        .menu li:hover > ul {
+            display: block;
+            /* opacity: 1; */
+            max-height: 500px;
+            visibility: visible;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: rgb(43, 43, 43);
+            left: 80%;
+            top: 3%;
+            position: absolute;
+            border: 2px solid rgb(80, 76, 76);
+            padding: 2px 10px 2px 10px;
+            border-radius: 5px;
+            background-color: #c4e1f7;
+            width: 20%;
+        }
+        .hamburger div {
+            left: 88%;
+            display: flex;
+            position: relative;
+            top: 23px; 
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            margin: 3px;
+        }
+        .hamburger:hover {
+            color:#176803
+        }
+        .hamburger div:hover{
+            background-color: #000000;
+        }
+        /* Moblie S */
+        @media (max-width: 200px) {
+            /* .thuvien{
+                font-size: 110%;
+                top: 2%;
+                display: block;
+                position: absolute;
+            } */
+            .hamburger{
+                top: 10%;
+                position: absolute;
+                display: flex;
+            }
+            .menu{
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                /* align-items: flex-start; */
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+                /* font-size: 10px; */
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 4;
+            top: 20px;
+            text-align: center;
+            font-size: 15px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+            .infor {
+                top: 0px;
+            }
+        }
+        /*  */
+        @media (max-width: 320px){
+            .infor{
+                top: 10px;
+                left: 5px;
+            }
+        }
+        @media (min-width:915px){
+            .menu {
+            font-family: Arial, sans-serif;
+            /* z-index: 2; */
+            display: flex;
+            text-align: center;
+            font-size: 20px;
+            top: 19px;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding: 0;
+            left: 25%;
+            right: 2%;
+            position: absolute;
+
+        }
+        .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 4;
+            top: 20px;
+            text-align: center;
+            font-size: 15px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .infor{
+            top: 50px;
+        }
+        }
+        /*  */
+        @media (max-width: 915px) {
+            .menu{
+                display:none;
+            }
+            .thuvien{
+                font-size: 135%;
+                top: 2%;
+                display: flex;
+                position: absolute;
+            }
+            .menu {
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+            }
+            .menu ul {
+                flex-direction: column;
+                width: 50%;
+               
+            }
+            .menu li {
+                display: block;
+                border-bottom: 1px solid white;
+            }
+            .menu ul ul {
+                position: block;
+            }
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px;
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%; 
+             }
+             .infor{
+                top: 10px;
+             }
+             .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 90px;
+            text-align: center;
+            font-size: 40px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .gt:hover{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 90px;
+            text-align: center;
+            font-size: 40px;
+            color:rgb(255, 255, 255);
+            /* transform: ; */
+            transition: 2s ease;
+        }
+        .gtt{
+            font-family: 'Courier New', Courier, monospace;
+            display:block;
+            font-weight: bold;
+            left: 26%;
+            position: absolute;
+            z-index: 1;
+            top: 32%;
+            text-align: center;
+            font-size: 30px;
+            color:rgb(255, 255, 255);
+        }
+        .sd img{
+            height:90%;
+            width: 93%;
+            position: absolute;
+            display: block;
+            top:50%;
+            align-self: center;
+            /* align: center; */
+            left: 5%;                              
+        }
+        .tittle{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            display:block;
+            position: absolute;
+            z-index: 1; 
+            /* left: 15%; */
+            top: 42%;
+            text-align: center;
+            align-self: center;
+            font-size: 30px;
+            color:#21537a;
+        }
+        .tittle2{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* font-weight: bold; */
+            display:block;
+            position: absolute;
+            z-index: 1;
+            /* left: 40%; */
+            top: 135%;
+            align-self: center;
+            /* text-align: center; */
+            font-size: 30px;
+            color:#21537a;
+        }
+        .bnt img{
+            height: 125%;
+            width: 85%;
+            position: absolute;
+            display: block;
+            top: 110%;
+            align-self: center;
+            /* align: center; */
+            left: 5%;
+        }
+        .tittle3{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* font-weight: bold; */
+            display:block;
+            position: absolute;
+            z-index: 1;
+            /* left: 40%; */
+            top: 235%;
+            align-self: center;
+            /* text-align: center; */
+            font-size: 30px;
+            color:#21537a;
+        }
+        .khaiquat{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 800;
+            position: absolute;
+            display: block;
+            font-size: 40px;
+            top: 1825px;
+            /* left: 15%; */
+            align-self: center;
+            /* background-color: #8cb0cb3a; */
+            /* padding: 5px 30px 5px 30px; */
+            /* border-radius: 10px; */
+            color:#000e40d4;
+            /* border: 2px solid #21537a4f; */
+            transition: all 0.5s ease;
+        }
+        .kimloai{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 1890px;
+        /* left: 15%; */
+        align-self: center;
+        background-color: #8cb0cb3a;
+        padding: 5px 50px 5px 50px;
+        border-radius: 10px;
+        color:#0a1437d4;
+        border: 2px solid #21537a4f;
+        transition: all 0.5s ease;
+    }
+    .kimloai:hover{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 1890px;
+        /* left: 15%; */
+        align-self: center;
+        background-color: #8cb0cbd3;
+        padding: 5px 300px 5px 300px;
+        border-radius: 10px;
+        color:#000040e2;
+        border: 2px solid #21537a7f;
+        transition: all 0.5s ease;
+    }
+    .textkl{
+        position: absolute;
+        display: block;
+        top: 2010px;
+        left: 8%;
+        margin-right: 75px;
+    }
+    .textkl1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        padding-bottom: 10px;
+        color: #0a1437d4;
+        margin-right: 20px;
+    }
+    .textkl2{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+    .textkl3{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+    .nhomA img{
+        position: absolute;
+        display: block;
+        top: 220px;
+        width: 200%;
+        /* height: 100%; */
+        left: 30%;
+        /* align-items: center; */
+    }
+    .nhomA{
+        top: 190px;
+        position: absolute;
+        display: block;
+        left: 7%;
+        /* align-self: center; */
+    }
+    /* nhom b */
+    .textklb{
+        position: absolute;
+        display: block;
+        top: 2960px;
+        left: 8%;
+        margin-right: 75px;
+    }
+    .textklb1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        padding-bottom: 10px;
+        color: #0a1437d4;
+    }
+    .textklb2{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+    }
+    .nhomB img{
+        position: absolute;
+        display: block;
+        top: 125px;
+        width: 200%;
+        /* height: 100%; */
+        left: 30%;
+        /* align-items: center; */
+    }
+    .nhomB{
+        position: absolute;
+        display: block;
+        left: 7%;
+        /* align-self: center; */
+    }
+    .gtkl{
+        position: absolute;
+        display: block;
+        top: 1955px;
+        align-self: center;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #79e34e42;
+        padding: 10px 75px 10px 75px;
+        border: 2px solid #21537a4f;
+    }
+    /* Phi kim */
+
+    .phikim{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 3850px;
+        /* left: 15%; */
+        align-self: center;
+        background-color: #8cb0cb3a;
+        padding: 5px 50px 5px 50px;
+        border-radius: 10px;
+        color:#0a1437d4;
+        border: 2px solid #21537a4f;
+        transition: all 0.5s ease;
+    }
+    .phikim:hover{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 3850px;
+        /* left: 15%; */
+        align-self: center;
+        background-color: #8cb0cbd3;
+        padding: 5px 300px 5px 300px;
+        border-radius: 10px;
+        color:#000040e2;
+        border: 2px solid #21537a7f;
+        transition: all 0.5s ease;
+    }
+    .textkl{
+        position: absolute;
+        display: block;
+        top: 2010px;
+        left: 8%;
+        margin-right: 75px;
+    }
+    .textkl1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        padding-bottom: 10px;
+        color: #0a1437d4;
+        margin-right: 20px;
+    }
+    .textkl2{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+    .textkl3{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+    .nhomA img{
+        position: absolute;
+        display: block;
+        top: 220px;
+        width: 200%;
+        /* height: 100%; */
+        left: 30%;
+        /* align-items: center; */
+    }
+    .nhomA{
+        top: 190px;
+        position: absolute;
+        display: block;
+        left: 7%;
+        /* align-self: center; */
+    }
+    /* nhom b */
+    .textklb{
+        position: absolute;
+        display: block;
+        top: 2960px;
+        left: 8%;
+        margin-right: 75px;
+    }
+    .textklb1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        padding-bottom: 10px;
+        color: #0a1437d4;
+    }
+    .textklb2{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+    }
+    .nhomB img{
+        position: absolute;
+        display: block;
+        top: 125px;
+        width: 200%;
+        /* height: 100%; */
+        left: 30%;
+        /* align-items: center; */
+    }
+    .nhomB{
+        position: absolute;
+        display: block;
+        left: 7%;
+        /* align-self: center; */
+    }
+    /* phi kim */
+    .gtpk{
+        position: absolute;
+        display: block;
+        top: 3920px;
+        align-self: center;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #79e34e42;
+        padding: 10px 75px 10px 75px;
+        border: 2px solid #21537a4f;
+    }
+    .textpk{
+        position: absolute;
+        display: block;
+        top: 3990px;
+        left: 8%;
+        margin-right: 75px;
+    }
+    .textpk1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        padding-bottom: 10px;
+        color: #0a1437d4;
+        margin-right: 20px;
+    }
+    .textpk2{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+    .nhompk img{
+        position: absolute;
+        display: block;
+        top: 200px;
+        width: 200%;
+        /* height: 100%; */
+        left: 30%;
+        /* align-items: center; */
+    }
+    .nhompk{
+        top: 165px;
+        position: absolute;
+        display: block;
+        left: 7%;
+        /* align-self: center; */
+    }
+    
+     /* khi hiem */
+     .khihiem{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 4930px;
+        /* left: 15%; */
+        align-self: center;
+        background-color: #8cb0cb3a;
+        padding: 5px 50px 5px 50px;
+        border-radius: 10px;
+        color:#0a1437d4;
+        border: 2px solid #21537a4f;
+        transition: all 0.5s ease;
+    }
+    .khihiem:hover{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 4930px;
+        /* left: 15%; */
+        align-self: center;
+        background-color: #8cb0cbd3;
+        padding: 5px 300px 5px 300px;
+        border-radius: 10px;
+        color:#000040e2;
+        border: 2px solid #21537a7f;
+        transition: all 0.5s ease;
+    }
+     .gtkh{
+        position: absolute;
+        display: block;
+        top: 5000px;
+        align-self: center;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #79e34e42;
+        padding: 10px 75px 10px 75px;
+        border: 2px solid #21537a4f;
+    }
+    .textkh{
+        position: absolute;
+        display: block;
+        top: 5075px;
+        left: 8%;
+        margin-right: 75px;
+    }
+    .textkh1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 800;
+        font-size: 30px;
+        padding-bottom: 10px;
+        color: #0a1437d4;
+        margin-right: 20px;
+    }
+    .textkh2{
+        font-family:Arial, Helvetica, sans-serif;
+        /* font-weight: 800; */
+        font-size: 25px;
+        color: #000000;
+        text-align: justify;
+        line-height: 140%;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+    .nhomkh img{
+        position: absolute;
+        display: block;
+        top: 200px;
+        width: 200%;
+        /* height: 100%; */
+        left: 30%;
+        /* align-items: center; */
+    }
+    .nhomkh{
+        top: 165px;
+        position: absolute;
+        display: block;
+        left: 7%;
+        /* align-self: center; */
+    }
+    </style>
+</head>
+<body>
+    <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+    <script>
+        const tudong_chatbox = new TuDongChat('jvopid51ezPfb_7aQTur8')
+        tudong_chatbox.initial()
+    </script>
+    <header>
+        <h1 class="thuvien">HÓA HỌC THCS TT LHT</h1> 
+        <div class="hamburger" onclick="toggleMenu()">
+            MENU    
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li>
+                    <a href="ThuVienHoaHocTHCSTTLHT.html">
+                    Trang chủ
+                    </a>
+                </li>
+                <li>
+                    <a href="ct7.html"><div class="home">Kiến thức</div></a>
+                </li>
+                <li><a href="baitap.html">Bài tập</a></li>
+                <li><a href="BangNguyenToTHCSTTLHT.html">Bảng Các Nguyên Tố</a>
+                </li>
+                <li><a href="#">Phản ứng</a>
+                    <ul>
+                        <li><a href="Web_PhanUngDepMat.html">Những phản ứng thực tế</a></li>
+                        <li><a href="Web_PhanUngChuongTrinh.html">Những phản ứng trong chương trình</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="background">
+        <img src="hinh-nen-thi-nghiem-hoa-hoc_093825847.jpg" alt="Hình nền">    
+    </div>
+
+    <div class="container"></div>
+   <div class="product"></div>
+    <div class="gt">
+        SƠ LƯỢC BẢNG TUẦN HOÀN CÁC NGUYÊN TỐ HÓA HỌC
+    </div>
+    <div class="tittle">
+        LÍ THUYẾT CHƯƠNG TRÌNH KHTN (HÓA HỌC) 7 : <BR>BÀI 4. SƠ LƯỢC BẢNG TUẦN HOÀN CÁC NGUYÊN TỐ HÓA HỌC
+    </div>
+    <div class="tittle2">
+        Sơ đồ tư duy về Sơ lược bảng tuần hoàn các nguyên tố hóa học
+    </div>
+    <div class="sd">
+        <img src="soluocbnt7.jpg" alt="Sơ đồ bảng nguyên tố">
+    </div>
+    <div class="bnt">
+        <img src="bnt.png" alt="Bài nguyên tố">
+    </div>
+    <div class="tittle3">
+        Bảng tuần hoàn các nguyên tố hóa học
+    </div>
+    <!-- <div class="infor" onclick="toggleInfor()">
+        Thông tin Website
+    </div> -->
+    <div class="khaiquat">PHÂN LOẠI NGUYÊN TỐ TRONG BẢNG TUẦN HOÀN</div>
+    <div class="kimloai">
+        Kim loại
+    </div>
+    <!-- kim loại nhóm A -->
+     <div class="gtkl">
+        Hơn 80% các nguyên tố hóa học trong bảng tuần hoàn là Kim loại
+     </div>
+    <div class="textkl">
+        <div class="textkl1">Các nguyên tố kim loại nhóm A</div>
+        <div class="textkl2">
+            <b>1/</b> Các nguyên tố kim loại nhóm A gồm nhóm <b>IA</b> (trừ nguyên tố hydrogen), nhóm <b>IIA</b>, nhóm <b>IIIA</b> (trừ nguyên tố boron). <br>
+            <b>2/</b> Các nguyên tố kim loại thuộc nhóm <b>IA</b> được gọi là nhóm <b>Kim loại kiềm</b><br>
+            <b>3/</b> Các nguyên tố kim loại thuộc nhóm <b>IIA</b> được gọi là nhhóm <b>Kim loại kiềm thổ</b>
+        </div>
+        <img class="nhomA" src="nhomA.png" alt="Nhóm A"> 
+    </div>
+    <!-- Kim loại nhóm B -->
+    <div class="textklb">
+        <div class="textklb1">Các nguyên tố kim loại nhóm B</div>
+        <div class="textklb2">
+            Các nguyên tố nhóm B đều là kim loại, mỗi nhóm B tương ứng với một cột trong bảng tuần hoàn (trừ nhóm VIIIB có 3 cột)
+        </div>
+        <img class="nhomB" src="nhomB.png" alt="Nhóm B"> 
+    </div>
+    <!-- Phi kim -->
+    <div class="phikim">
+        Phi kim
+    </div>
+    
+    <div class="gtpk">
+        Tập trung ở góc bên phải của Bảng tuần hoàn
+     </div>
+
+     <div class="textpk">
+        <div class="textpk1">Các nguyên tố phi kim</div>
+        <div class="textpk2">
+            Các nguyên tố phi kim bào gồm: nguyên tố Hydrogen (nhóm IA), một số nguyên tố ở nhóm IIIA và IVA,
+            hầu hết các nguyên tố thuộc nhóm VA, VIA và VIIA
+            <br><i><b>***</b> Ở điều kiện thường, các phi kim có thể ở <b>thể rắn</b>, <b>lỏng</b> hoặc <b>khí</b></i>
+        </div>
+        <img class="nhompk" src="nhomphikim.png" alt="Nhóm phi kim"> 
+    </div>
+    <!-- khi hiem -->
+    <div class="khihiem">
+        Khí hiếm
+    </div>
+    <div class="gtkh">
+        Là nhóm các nguyên tố nằm phía ngoài cùng của bảng
+     </div>
+
+     <div class="textkh">
+        <div class="textkh1">Các nguyên tố khí hiếm</div>
+        <div class="textkh2">
+            Nhóm <b>VIIIA</b> gồm các nguyên tố khí hiếm: Helium, Neon, Argon, Krypton, Xenon và Oganesson. 
+            <br> Các nguyên tố này chiếm tỉ lệ rất ít trong không khí nhưng chúng có những ứng dụng quan trọng 
+            trong cuộc sống.
+        </div>
+        <img class="nhomkh" src="nhomkhihiem.png" alt="Nhóm khí hiếm"> 
+    </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu'); 
+            if (menu.style.display === 'flex' ) {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+        // Thong tin
+        
+        function toggleInfor() {
+            var infor = document.getElementById("boxinfor");
+            if (infor.style.display === "none") {
+                infor.style.display = "block";
+            } else {
+                infor.style.display = "none";
+            }
+            
+        }
+        function toggleRemove(){
+            var remove = document.getElementById("boxinfor");
+            if (remove.style.display === "block") {
+                remove.style.display = "none";
+            } else {
+                remove.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

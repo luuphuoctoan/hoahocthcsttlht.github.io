@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phản ứng hóa học trong chương trình</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 1650px;
+            background-color: hsl(237, 61%, 83%);
+            /* footer */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main{
+            flex: 1;
+        }
+        header {
+            background-color: #21537a;
+            color: #fff;
+            padding: 1px 0;
+            padding-left: 15px;
+            text-align: left;
+            left: 20px;
+            height: 70px;
+            display: block;
+            position: flex;
+            z-index: 5;
+        }
+        .BNT{
+            /* color:#003b67; */
+            color:#efe11e;
+            /* background-color: #3b76b586; */
+            border-radius: 5px;
+            
+        }
+        .container {
+            top: 19px;
+            width: 0%;
+            left: 10%;
+            /* overflow: hidden; */
+            display: block;
+            position: absolute;
+        }
+        .product {
+            top: 10em;
+            border: 1px solid #ccc;
+            padding: 2px;   
+            left: 2%;
+            right: 2%;
+            background-color: #fff;
+            border-radius: 5px;
+            display: block;
+            position: absolute;
+            height: 100px;
+        }
+        .product h2 {
+            color: #333;
+            padding: 3px;
+        }
+        .product p {
+            color: #666;
+            padding-left: 5px;
+        }
+        .product .price {
+            color: #b12704;
+            font-size: 18px;
+        }
+        .footer {
+            display: block;
+            position: relative;
+            bottom: 0;
+            width:100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+
+            margin-top: auto;
+        }
+        .background img{
+            z-index: -1;
+            width: 90%;
+            left: 5%;
+            right: 5%;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+            display: block;
+            position: absolute;
+        }
+        @media (max-width: 700px) {
+            .container{
+                top: 10%;
+                width: 90%;
+                left: 2.5%;
+                right: 2.5%;
+                margin: auto;
+                /* overflow: hidden; */
+                /* display: block;
+                position: absolute; */
+            }
+        }
+        @media (max-width: 820px) {
+        .product {
+            margin: center; /* Căn giữa phần tử */
+            width: 93%; /* Chiếm 95% chiều rộng trên thiết bị điện thoại */
+            left: 3%; /* Căn giữa phần tử */
+            right: 3%; /* Căn giữa phần tử */
+            top: 20%; /* Giảm khoảng cách từ trên xuống */
+            padding: 3px; /* Giảm padding để phù hợp với màn hình nhỏ */
+            /* height: 75%; */
+            height: 100%;
+        }
+    }
+        @media (min-width: 820px) {
+            .product {
+                top: 20%;
+                width:95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+        }
+        @media (min-width: 1024px){
+            .product{
+                height: 40%;
+                top: 40% ;
+                width: 81%;
+                left: 3%;
+                right: 3%;
+                padding: 7%;
+                height: 300%;
+            }
+        }
+        @media (min-height: 1366px){
+            .product{
+                height: 40%;
+                top: 25% ;
+                width: 95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+        }
+        @media (max-width: 800px) and (max-height: 645px) {
+            .hamburger {
+                display: flex;
+                left: 75%;
+                text-align: center;
+                width: 15%;
+            }
+            .menu{
+                display: none;
+            }
+        }
+        @media(min-width:800px) and (max-width: 645px) {
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px; */
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%;
+            }
+            .menu {
+                display: none;
+                width: auto;
+            }
+        }
+        /* menu */
+        .menu {
+            font-family: Arial, sans-serif;
+            /* z-index: 2; */
+            display: flex;
+            text-align: center;
+            font-size: 20px;
+            top: 3%;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding: 0;
+            left: 60%;
+            right: 2%;
+            position: absolute;
+
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .menu li {
+            position: relative;
+            display: inline-block;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 35px;
+            display: block;
+            padding: 7px 25px 7px 25px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width:auto;
+        }
+        .menu a:hover {
+            background-color: #3b76b586;
+            border-radius: 20px 10px 20px 0px;
+
+        }
+        .menu li:hover > a {
+            color:#efe11e;
+            /* background-color:; */
+        }
+        .menu ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #15376db1;
+            visibility: hidden;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, visibility 0.3s ease;
+        }
+        .menu ul ul li {
+            display: block;
+        }
+        .menu ul ul a {
+            padding: 10px;
+            padding-right: 6px;
+        }
+        .menu li:hover > ul {
+            display: block;
+            /* opacity: 1; */
+            max-height: 500px;
+            visibility: visible;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: rgb(43, 43, 43);
+            left: 80%;
+            top: 3%;
+            position: absolute;
+            border: 2px solid rgb(80, 76, 76);
+            padding: 2px 10px 2px 10px;
+            border-radius: 5px;
+            background-color: #c4e1f7;
+        }
+        .hamburger div {
+            left: 88%;
+            display: flex;
+            position: relative;
+            top: 23px; 
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            margin: 3px;
+        }
+        .hamburger:hover {
+            color:#176803
+        }
+        .hamburger div:hover{
+            background-color: #000000;
+        }
+        /* Moblie S */
+        @media (max-width: 320px) {
+            /* .thuvien{
+                font-size: 110%;
+                top: 2%;
+                display: block;
+                position: absolute;
+            } */
+            .hamburger{
+                top: 10%;
+                position: absolute;
+                display: flex;
+            }
+            .menu{
+                z-index: 3;
+                top: 100px;
+                flex-direction: column;
+                /* align-items: flex-start; */
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+            }
+            
+            
+        }
+        /*  */
+        @media (min-width:900px){
+            .menu {
+            font-family: Arial, sans-serif;
+            /* z-index: 2; */
+            display: flex;
+            text-align: center;
+            font-size: 20px;
+            top: 25px;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding: 0;
+            left: 25%;
+            right: 2%;
+            position: absolute;
+
+        }
+        }
+        /*  */
+        @media (max-width: 915px) {
+            .menu{
+                display:none;
+            }
+            .thuvien{
+                font-size: 135%;
+                top: 2%;
+                display: flex;
+                position: absolute;
+            }
+            .menu {
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+            }
+            .menu ul {
+                flex-direction: column;
+                width: 100%;
+               
+            }
+            .menu li {
+                display: block;
+                border-bottom: 1px solid white;
+            }
+            .menu ul ul {
+                position: block;
+            }
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px;
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%; 
+             }
+        }
+
+
+
+    .tittle{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-style: bold;
+        font-weight: bolder;
+        display: block;
+        position: relative;
+        z-index: 1;
+        top: 100px;
+        text-align: center;
+        font-size: 40px;
+        color:rgba(255, 255, 255, 0.856);
+    }
+    .container {
+    /* margin-top: 100px; Adjust for fixed header */
+    padding: 20px;
+    margin-right: 50px;
+    margin-left: -115px;
+    margin-top: 250px;
+    
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); /* Adjust based on the number of columns */
+    gap: 1193px;
+    width: 10px;
+    /* display:block; */
+    position: inherit;
+    padding-top: 10px;
+    top: 55px;
+    /* top: 50px; */
+}
+.periodic-table2 {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top: 140px;
+    position: relative;
+    /* top: 50px; */
+}
+.periodic-table-right2{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    right: 20px;
+    z-index: 1;
+    left: 753px;
+    top: 42px;
+    position: relative;
+}
+.periodic-table3 {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    position: relative;
+    top:40px;
+    /* top: 50px; */
+}
+.periodic-table-right3{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    right: 20px;
+    z-index: 1;
+    left: 753px;
+    top: -55px;
+    position: relative;
+}
+.periodic-table4{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top:369PX;
+    position: absolute;
+}
+.periodic-table5{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top:472PX;
+    position: absolute;
+}
+.periodic-table6{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top:575PX;
+    position: absolute;
+}
+.periodic-table7{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top:680px;
+    position: absolute;
+}
+.element {
+    background-color: #88a9eba5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    top: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+    display: fixed;
+    position: block;
+    right: 2px;
+    width: 76px;
+    margin:center;
+    /* overflow: ; */
+}
+.element.kimloai{
+    background-color: #88a9eb48 ;
+}
+.element.phikim{
+    background-color: #ef6ee652;
+}
+.element.khihiem{
+    background-color: #f6b78670;
+}
+.element:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #000e40; 
+}
+.element:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #000e40; 
+}
+.element.clicked {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #000e40; 
+}
+/* Phi Kim */
+.element.phikim:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #72008e; 
+}
+.element.phikim:hover {
+    transform: scale(1.1);
+    background-color: #ef6ee69f;
+    border: 1px solid #72008e; 
+}
+.element.phikim.clicked {
+    transform: scale(1.1);
+    background-color: #ef6ee69f;
+    border: 1px solid #72008e; 
+}
+/* Khí hiếm */
+.element.khihiem:hover {
+    transform: scale(1.1);
+    background-color: #f6b686b3;
+    border: 1px solid #be5404; 
+}
+.element.khihiem:hover {
+    transform: scale(1.1);
+    background-color: #f6b686b3;
+    border: 1px solid #be5404; 
+}
+.element.khihiem.clicked {
+    transform: scale(1.1);
+    background-color: #f6b686b3;
+    border: 1px solid #be5404; 
+}
+/*  */
+.element .number,
+.element .symbol,
+.element .name,
+.element .mass,
+.element .img {
+    display: block;
+}
+
+.element-info {
+    display: none;
+    position: absolute;
+    font-size: 19px;
+    top: 65%;
+    left: 3%;
+    width: 30%;
+    height: 35%;
+    transform: translate(50%, -50%);
+    background-color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 1001;
+    
+    border-style: outset;
+    
+}
+
+.element-info h2 {
+    margin-top: 0;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Màu nền đen mờ */
+    display: none; /* Ban đầu ẩn lớp phủ */
+    z-index: 999;
+}
+.home{
+            /* color:#003b67; */
+            color:#efe11e;
+            /* background-color: #3b76b586; */
+            border-radius: 5px;
+            
+        }
+/*  */
+
+/*  */
+    .box1{
+        position: absolute;
+        display:block;
+        top: 45%;
+        left: 5%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box1 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box1 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left:15%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    
+    .pt1{
+        position: absolute;
+        display:block;
+        width: 55px;
+        height: 55px;
+        font-size: 50px;
+        top: 278px;
+        right: 5px;
+        background-color: #1f3dfed7;
+        padding: 0px 9px 12px 0px; 
+        cursor:pointer;
+        border-radius: 10px;
+        border: 1px solid #040133;
+        transition: 0.5s ease;
+    }
+    .pt1:hover{
+        position: absolute;
+        display:block;
+        width: 55px;
+        height: 55px;
+        font-size: 50px;
+        top: 278px;
+        right: 5px;
+        background-color: #1f3dfe;
+        padding: 0px 9px 12px 0px; 
+        cursor:pointer;
+        border-radius: 10px;
+        border: 1px solid #040133;
+        transform: scale(0.9);
+        transition: 1s ease;
+    }
+    .pt1:hover .pt1hover {
+    visibility: visible;
+    }
+
+.pt1hover {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    
+    /* Vị trí */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Tùy chỉnh vị trí của tooltip */
+    left: 50%;
+    margin-left: -60px; /* Điều chỉnh để tooltip canh giữa */
+}
+.pt1infor{
+    position: absolute;
+    display: none;
+    top: 10px;
+    left: 8%;
+    background-color: #ffffffeb;
+    padding: 23px 20px 10px 20px;
+    font-size: 20px;
+    width: 500px;
+    /* align-items: center; */
+    line-height: 110%;
+    border-radius: 20px;
+    transition: all 1s ease;
+    /* border: 2px solid #000000; */
+    
+}
+.pt1infor p{
+    position: relative;
+    display: none;
+    color:#000000;
+    text-align: center;
+    margin-bottom: -20px;
+    top:-28px;
+}
+/* box 2 */
+    .box2{
+        position: absolute;
+        display:block;
+        top: 45%;
+        left: 51%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box2 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box2 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 21%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    .pt2{
+        position: absolute;
+        display:block;
+        width: 55px;
+        height: 55px;
+        font-size: 50px;
+        top: 278px;
+        right: 5px;
+        background-color: #1f3dfed7;
+        padding: 0px 9px 12px 0px; 
+        cursor:pointer;
+        border-radius: 10px;
+        border: 1px solid #040133;
+        transition: 0.5s ease;
+    }
+    .pt2:hover{
+        position: absolute;
+        display:block;
+        width: 55px;
+        height: 55px;
+        font-size: 50px;
+        top: 278px;
+        right: 5px;
+        background-color: #1f3dfe;
+        padding: 0px 9px 12px 0px; 
+        cursor:pointer;
+        border-radius: 10px;
+        border: 1px solid #040133;
+        transform: scale(0.9);
+        transition: 1s ease;
+    }
+    .pt2:hover .pt1hover {
+    visibility: visible;
+    }
+
+.pt2hover {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    
+    /* Vị trí */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Tùy chỉnh vị trí của tooltip */
+    left: 50%;
+    margin-left: -60px; /* Điều chỉnh để tooltip canh giữa */
+}
+.pt2infor{
+    position: absolute;
+    display: none;
+    top: 10px;
+    left: 8%;
+    background-color: #ffffffeb;
+    padding: 23px 20px 10px 20px;
+    font-size: 20px;
+    width: 500px;
+    /* align-items: center; */
+    line-height: 110%;
+    border-radius: 20px;
+    transition: all 1s ease;
+    /* border: 2px solid #000000; */
+    
+}
+.pt2infor p{
+    position: relative;
+    display: none;
+    color:#000000;
+    text-align: center;
+    margin-bottom: -20px;
+    top:-28px;
+}
+/* box 3 */
+.box3{
+        position: absolute;
+        display:block;
+        top: 102%;
+        left: 5%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box3 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box3 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 21%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    .pt3{
+        position: absolute;
+        display:block;
+        width: 55px;
+        height: 55px;
+        font-size: 50px;
+        top: 278px;
+        right: 5px;
+        background-color: #1f3dfed7;
+        padding: 0px 9px 12px 0px; 
+        cursor:pointer;
+        border-radius: 10px;
+        border: 1px solid #040133;
+        transition: 0.5s ease;
+    }
+    .pt3:hover{
+        position: absolute;
+        display:block;
+        width: 55px;
+        height: 55px;
+        font-size: 50px;
+        top: 278px;
+        right: 5px;
+        background-color: #1f3dfe;
+        padding: 0px 9px 12px 0px; 
+        cursor:pointer;
+        border-radius: 10px;
+        border: 1px solid #040133;
+        transform: scale(0.9);
+        transition: 1s ease;
+    }
+    .pt3:hover .pt1hover {
+    visibility: visible;
+    }
+
+.pt3hover {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    
+    /* Vị trí */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Tùy chỉnh vị trí của tooltip */
+    left: 50%;
+    margin-left: -60px; /* Điều chỉnh để tooltip canh giữa */
+}
+.pt3infor{
+    position: absolute;
+    display: none;
+    top: 10px;
+    left: 8%;
+    background-color: #ffffffeb;
+    padding: 23px 20px 10px 20px;
+    font-size: 20px;
+    width: 500px;
+    /* align-items: center; */
+    line-height: 110%;
+    border-radius: 20px;
+    transition: all 1s ease;
+    /* border: 2px solid #000000; */
+    
+}
+.pt3infor p{
+    position: relative;
+    display: none;
+    color:#000000;
+    text-align: center;
+    margin-bottom: -20px;
+    top:-28px;
+}
+/* box 4 */
+.box4{
+        position: absolute;
+        display:block;
+        top: 102%;
+        left: 51%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box4 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box4 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 15%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    /* box 5 */
+.box5{
+        position: absolute;
+        display:block;
+        top: 160%;
+        left: 5%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box5 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box5 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 15%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    /* box 6 */
+.box6{
+        position: absolute;
+        display:block;
+        top: 160%;
+        left: 51%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box6 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box6 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 6%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    /* box 7 */
+    .box7{
+        position: absolute;
+        display:block;
+        top: 220%;
+        left: 5%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box7 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box7 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 10%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    /* box 8 */
+.box8{
+        position: absolute;
+        display:block;
+        top: 220%;
+        left: 51%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box8 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box8 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 15%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+/* box 9 */
+    .box9{
+        position: absolute;
+        display:block;
+        top: 278%;
+        left: 5%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box9 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box9 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left: 15%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    /* box 10 */
+    .box10{
+        position: absolute;
+        display:block;
+        top: 278%;
+        left: 51%;  
+        border: 2px solid #050050;
+        border-radius: 5px;
+        height: 54%;
+    }
+    .box10 iframe{
+        border-bottom: 5px solid #05005094;
+        border-radius: 5px;
+    }
+    .box10 p{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-self: center;
+        font-weight: 600;
+        position: absolute;
+        display: block;
+        left:7%;
+        font-size: 25px;
+        top: 85%;
+        color:#040133;
+    }
+    .xemthem{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        position: absolute;
+        display: block;
+        font-size: 25px;
+        top: 350%;
+        left: 10%;
+    }
+    .linkxemthem{
+        text-decoration: none;
+        color:#06005a;
+        font-weight: 700;
+        font-size: 26px;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+    <script>
+        const tudong_chatbox = new TuDongChat('jvopid51ezPfb_7aQTur8')
+        tudong_chatbox.initial()
+    </script>
+
+    <header>
+        <h1 class="thuvien">HÓA HỌC THCS TT LHT</h1> 
+
+        <div class="hamburger" onclick="toggleMenu()">
+            MENU
+            <!-- <div></div>
+            <div></div>
+            <div></div> -->
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li>
+                    <a href="ThuVienHoaHocTHCSTTLHT.html">
+                    Trang chủ
+                    </a>
+                </li>
+                <li>
+                    <a href="ct7.html">Kiến thức</a>
+                </li>
+                <li><a href="baitap.html">Bài tập</a></li>
+                <li><a href="BangNguyenToTHCSTTLHT.html">Bảng Các Nguyên Tố</a>
+                </li>
+                <li><a href="#"><div class="home">Phản ứng</div></a>
+                    <ul>
+                        <li><a href="Web_PhanUngDepMat.html">Những phản ứng thực tế</a></li>
+                        <li><a href="Web_PhanUngChuongTrinh.html">Những phản ứng trong chương trình</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="background">
+        <img src="hinh-nen-thi-nghiem-hoa-hoc_093825847.jpg" alt="Hình nền">    
+    </div>
+   <div class="product"></div>
+    <!-- <div class="footer">
+        <p>Gmail: luuphuoctoanlht3@gmail.com</p>
+    </div> -->
+    <div class="tittle">
+        NHỮNG PHẢN ỨNG HÓA HỌC TRONG CHƯƠNG TRÌNH HỌC
+    </div>
+    <div class="container">
+        
+</div>
+     
+</div>
+<div class="box1">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/lDl4RS80Pak"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Top 8 kim loại tác dụng với Acid H<sub>2</sub>SO<sub>4</sub></p>
+    
+    
+</div>
+<div class="box2">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/1hW1hJghqq0"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Điện phân dung dịch muối ăn NaCl</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+   
+</div>
+<div class="box3">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/usyjR6N5Co4"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Phản ứng của Sodium và Nước</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="box4">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/UvzgBbu5964"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Các màu sắc dung dịch với chất chỉ thị pH</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="box5">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/IpSZn6YTGX8"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Thí nghiệm băng nóng CH<sub>3</sub>COONa</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+
+<div class="box6">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/G7EUmYqA_pM"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Ảnh hưởng của chất xúc tác đến tốc độ phản ứng</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="box7">
+ 
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/WykeKnTvGrg"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Những phản ứng hóa học mà học sinh đều biết</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="box8">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/o-yFJzhJqus"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Phản ứng giữa copper (II) oxide và acid HCl</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="box9">
+    <iframe width="650" height="350" src="https://www.youtube.com/embed/jhbvBsMzVPg"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Phản ứng acid tác dụng với base</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="box10">
+    <iframe width="650" height="350" src="video PU base.mp4"></iframe>
+    <!-- https://www.youtube.com/watch?v=A-Sq_sx3mwo -->
+    <p>Chất chỉ thị màu phenolphtalein lên hợp chất base</p>
+    <!-- <div class="pt2"  onclick="toggleInfor2()">⚗️</div> -->
+</div>
+<div class="xemthem">
+    Xem thêm những video phản ứng hóa học trên kênh Youtube: 
+    <a class="linkxemthem" href="https://www.youtube.com/@MrSkeletonTh%C3%ADNghi%E1%BB%87m"><b>Tại đây !</b></a>
+   <!-- <b> https://www.youtube.com/@MrSkeletonTh%C3%ADNghi%E1%BB%87m</b> -->
+</div>
+    <!-- PHẦN SCRIPT -->
+    <script src="script.js"></script>
+    <script>
+        function toggleInfor1() {
+            var pt1 = document.getElementById("pt1infor", "pt1infor p");
+            if (pt1.style.display === "none") {
+                pt1.style.display = "block";
+            } else {
+                pt1.style.display = "none";
+            }
+        }
+        function toggleInfor2() {
+            var pt2 = document.getElementById("pt2infor", "pt2infor p");
+            if (pt2.style.display === "none") {
+                pt2.style.display = "block";
+            } else {
+                pt2.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

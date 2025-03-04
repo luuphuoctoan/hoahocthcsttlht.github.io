@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiến thức Hóa Học</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 1650px;
+            background-color: hsl(237, 61%, 83%);
+            /* footer */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main{
+            flex: 1;
+        }
+        header {
+            background-color: #21537a;
+            color: #fff;
+            padding: 1px 0;
+            padding-left: 15px;
+            text-align: left;
+            left: 20px;
+            height: 70px;
+            display: block;
+            position: flex;
+        }
+        .container {
+            top: 10px;
+            width: 90%;
+            left: 10%;
+            padding-right: 10%;
+            margin: auto;
+            /* overflow: hidden; */
+            display: block;
+            position: absolute;
+        }
+        .home{
+            /* color:#003b67; */
+            color:#efe11e;
+            /* background-color: #3b76b586; */
+            border-radius: 5px;
+            
+        }
+
+        .product {
+            top: 20em;
+            border: 1px solid #ccc;
+            padding: 2px;   
+            left: 2%;
+            right: 2%;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            position: absolute;
+            height: 300px;
+        }
+        .product h2 {
+            color: #333;
+            padding: 3px;
+        }
+        .product p {
+            color: #666;
+            padding-left: 5px;
+        }
+        .product .price {
+            color: #b12704;
+            font-size: 18px;
+        }
+
+        .background img{
+            z-index: -1;
+            width: 90%;
+            left: 5%;
+            right: 5%;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+           display: block;
+           position: absolute;
+        }
+        @media (max-width: 700px) {
+            .container{
+                top: 10%;
+                width: 90%;
+                left: 2.5%;
+                right: 2.5%;
+                margin: auto;
+                /* overflow: hidden; */
+                /* display: block;
+                position: absolute; */
+            }
+            .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }
+        @media (max-width: 820px) {
+        .product {
+            margin: center; /* Căn giữa phần tử */
+            width: 93%; /* Chiếm 95% chiều rộng trên thiết bị điện thoại */
+            left: 3%; /* Căn giữa phần tử */
+            right: 3%; /* Căn giữa phần tử */
+            top: 25%; /* Giảm khoảng cách từ trên xuống */
+            padding: 3px; /* Giảm padding để phù hợp với màn hình nhỏ */
+            /* height: 75%; */
+            height: 100%;
+        }
+        .bgmo{
+                position: absolute;
+                display: flex;
+                height: 95px;
+                top: 8.5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+                
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 25px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+    }
+        @media (min-width: 820px) {
+            .product {
+                top: 40%;
+                width:95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+            .bgmo{
+                position: absolute;
+                display: flex;
+                height:200px;
+                top: 5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            
+        }
+        .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }
+        @media (min-width: 1024px){
+            /* máy tính/laptop */
+            .product{
+                height: 40%;
+                top: 40% ;
+                width: 81%;
+                left: 3%;
+                right: 3%;
+                padding: 7%;
+                height: 100%;
+            }
+            .bgmo{
+                position: absolute;
+                display: flex;
+                height: 276px;
+                top: 9.5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+                
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+            .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }   
+        @media (min-height: 1366px){
+            .product{
+                height: 30%;
+                top: 25% ;
+                width: 95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+
+        @media (max-width: 800px) and (max-height: 645px) {
+            .hamburger {
+                display: flex;
+                left: 75%;
+                text-align: center;
+                width: 15%;
+            }
+            .menu{
+                display: none;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        @media(min-width:800px) and (max-width: 645px) {
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px; */
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%;
+            }
+            .menu {
+                display: none;
+                width: auto;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        /* menu */
+        .menu {
+            font-family: Arial, sans-serif;
+            z-index: 2;
+            display: flex;
+            text-align: center;
+            font-size: 25px;
+            top: 3%;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding-right: -30px;
+            left: 60%;
+            position: relative;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .menu li {
+            position: relative;
+            display: inline-block;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 35px;
+            display: block;
+            padding: 7px 25px 7px 25px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width:auto;
+        }
+        .menu a:hover {
+            background-color: #3b76b586;
+            border-radius: 20px 10px 20px 0px;
+
+        }
+        .menu li:hover > a {
+            color:#efe11e;
+            /* background-color:; */
+        }
+        .menu ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #15376db1;
+            visibility: hidden;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, visibility 0.3s ease;
+        }
+        .menu ul ul li {
+            display: block;
+        }
+        .menu ul ul a {
+            padding: 10px;
+            padding-right: 6px;
+        }
+        .menu li:hover > ul {
+            display: block;
+            /* opacity: 1; */
+            max-height: 500px;
+            visibility: visible;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: rgb(43, 43, 43);
+            left: 80%;
+            top: 3%;
+            position: absolute;
+            border: 2px solid rgb(80, 76, 76);
+            padding: 2px 10px 2px 10px;
+            border-radius: 5px;
+            background-color: #c4e1f7;
+            width: 20%;
+        }
+        .hamburger div {
+            left: 88%;
+            display: flex;
+            position: relative;
+            top: 23px; 
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            margin: 3px;
+        }
+        .hamburger:hover {
+            color:#176803
+        }
+        .hamburger div:hover{
+            background-color: #000000;
+        }
+        /* Moblie S */
+        @media (max-width: 200px) {
+            /* .thuvien{
+                font-size: 110%;
+                top: 2%;
+                display: block;
+                position: absolute;
+            } */
+            .hamburger{
+                top: 10%;
+                position: absolute;
+                display: flex;
+            }
+            .menu{
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                /* align-items: flex-start; */
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+                /* font-size: 10px; */
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 4;
+            top: 20px;
+            text-align: center;
+            font-size: 15px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+            .infor {
+                top: 0px;
+            }
+        }
+        /*  */
+        @media (max-width: 320px){
+            .infor{
+                top: 10px;
+                left: 5px;
+            }
+        }
+        @media (min-width:915px){
+            .menu {
+            font-family: Arial, sans-serif;
+            /* z-index: 2; */
+            display: flex;
+            text-align: center;
+            font-size: 20px;
+            top: 19px;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding: 0;
+            left: 25%;
+            right: 2%;
+            position: absolute;
+
+        }
+        .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 4;
+            top: 20px;
+            text-align: center;
+            font-size: 15px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .infor{
+            top: 50px;
+        }
+        }
+        /*  */
+        @media (max-width: 915px) {
+            .menu{
+                display:none;
+            }
+            .thuvien{
+                font-size: 135%;
+                top: 2%;
+                display: flex;
+                position: absolute;
+            }
+            .menu {
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+            }
+            .menu ul {
+                flex-direction: column;
+                width: 50%;
+               
+            }
+            .menu li {
+                display: block;
+                border-bottom: 1px solid white;
+            }
+            .menu ul ul {
+                position: block;
+            }
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px;
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%; 
+             }
+             .infor{
+                top: 10px;
+             }
+             .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 90px;
+            text-align: center;
+            font-size: 40px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .gt:hover{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 90px;
+            text-align: center;
+            font-size: 40px;
+            color:rgb(255, 255, 255);
+            /* transform: ; */
+            transition: 2s ease;
+        }
+        .gtt{
+            font-family: 'Courier New', Courier, monospace;
+            display:block;
+            font-weight: bold;
+            left: 26%;
+            position: absolute;
+            z-index: 1;
+            top: 32%;
+            text-align: center;
+            font-size: 30px;
+            color:rgb(255, 255, 255);
+        }
+        .sd img{
+            height:90%;
+            width: 90%;
+            position: absolute;
+            display: block;
+            top:55%;
+            align-self: center;
+            /* align: center; */
+            left: 5%;     
+            opacity:0.9; 
+            border-radius: 15px;                        
+        }
+        .tittle{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            display:block;
+            position: absolute;
+            z-index: 1;
+            /* left: 15%; */
+            top: 42%;
+            text-align: center;
+            align-self: center;
+            font-size: 30px;
+            color:#21537a;
+        }
+        .tittle2{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* font-weight: bold; */
+            display:block;
+            position: absolute;
+            z-index: 1;
+            /* left: 40%; */
+            top: 150%;
+            align-self: center;
+            /* text-align: center; */
+            font-size: 30px;
+            color:#21537a;
+        }
+        .box1{
+            height: 400px;
+            width: 70%;
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            right: 0;
+            z-index:1;
+            border-radius: 5px;
+            /* border: 1px solid #000000; */
+            border: 3px solid  #0000008a;
+        }
+        
+        .sgk1{
+            height: 95%;
+            width: 29%;
+            position: absolute;
+            display: block;
+            top: 2%;
+            left: 1%;
+            right: 0;
+            z-index: 1;
+            transition: all 1s ease;
+            opacity: 0.8;
+        }
+        .sgk1:hover{
+            height: 95%;
+            width: 29%;
+            position: absolute;
+            display: block;
+            top: 2%;
+            left: 1%;
+            right: 0;
+            z-index: 1;
+            /* border:5px solid rgb(43, 43, 43); */
+            transform: scale(0.95);
+            transition: all 0.5s ease;
+            opacity: 1;
+            border-radius: 10px;
+            border: 2px solid #000000;
+        }
+        .sgk2{
+            height: 95%;
+            width: 29%;
+            position: absolute;
+            display: block;
+            top: 2%;
+            left: 1%;
+            right: 0;
+            z-index: 1;
+            transition: all 1s ease;
+            opacity: 0.8;
+        }
+        .sgk2:hover{
+            height: 95%;
+            width: 29%;
+            position: absolute;
+            display: block;
+            top: 2%;
+            left: 1%;
+            right: 0;
+            z-index: 1;
+            /* border:5px solid rgb(43, 43, 43); */
+            transform: scale(0.95);
+            transition: all 0.5s ease;
+            opacity: 1;
+            border-radius: 10px;
+            border: 2px solid #000000;
+        }
+        .chg1{
+        position: absolute;
+        display: block;
+        top: 3%;
+        /* left: 1%; */
+        margin-left: 33%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000d2;
+        transition: 0.5s ease;
+        }
+        .chg1:hover{
+            position: absolute;
+        display: block;
+        top: 3%;
+        /* left: 1%; */
+        margin-left: 33%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000c3f;
+        transition: 0.5s ease;
+        }
+        .part1{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 10%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part1:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 10%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }   
+    .part2{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 20%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part2:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 20%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part3{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 30%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part3:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 30%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 24px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .chg2{
+        position: absolute;
+        display: block;
+        top: 40%;
+        /* left: 1%; */
+        margin-left: 33%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000d2;
+        transition: 0.5s ease;
+        }
+        .chg2:hover{
+            position: absolute;
+            display: block;
+            top: 40%;
+            /* left: 1%; */
+            margin-left: 33%;
+            font-weight: 700;
+            font-size: 25px;
+            /* margin-right: 50%; */
+            color:#000c3f;
+            transition: 0.5s ease;
+        }
+        .part21{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part21:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part22{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 60%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part22:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 60%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part23{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 70%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part23:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 70%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part24{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 80%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part24:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 80%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b; 
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .downloadsgk7{
+        text-decoration: none;
+        font-family:Arial, Helvetica, sans-serif;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        top: 85%;
+        left: 40%;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #1560ea34;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        /* text-decoration: none; */
+        padding: 5px 60px 5px 60px;
+        transition: all 0.5s ease;
+        border-radius: 5px;
+        transition: transform 1s ease, box-shadow 1s ease;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    }
+    .downloadsgk7:hover{
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        top: 85%;
+        left: 40%;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #4886f989;
+        /* margin-right: 50%; */
+        color:#0c005d;
+        transition: all 0.5s ease ;
+        border-radius: 10px;
+        padding:5px 60px 5px 60px;
+        /* box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2); */
+        /* border:1px solid #000000; */
+        /* transition: border 1s inherit; */
+        transform: scale(0.95);
+        box-shadow: 8px 7px 1px 0px rgba(128, 128, 128, 0.755);
+            /* transition: 0.5s ease-out; */
+        transition: transform 1s ease, box-shadow 1s ease;
+    }
+    .downloadsgk8{
+        z-index: 10;
+        text-decoration: none;
+        font-family:Arial, Helvetica, sans-serif;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        top: 153%;
+        left: 43%;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #1560ea34;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        /* text-decoration: none; */
+        padding: 5px 60px 5px 60px;
+        transition: all 0.5s ease;
+        border-radius: 5px;
+        transition: transform 1s ease, box-shadow 1s ease;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    }
+    .downloadsgk8:hover{
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        top: 153%;
+        left: 43%;
+        font-weight: 700;
+        font-size: 25px;
+        background-color: #4886f989;
+        /* margin-right: 50%; */
+        color:#0c005d;
+        transition: all 0.5s ease ;
+        border-radius: 10px;
+        padding:5px 60px 5px 60px;
+        /* box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2); */
+        /* border:1px solid #000000; */
+        /* transition: border 1s inherit; */
+        transform: scale(0.95);
+        box-shadow: 8px 7px 1px 0px rgba(128, 128, 128, 0.755);
+            /* transition: 0.5s ease-out; */
+        transition: transform 1s ease, box-shadow 1s ease;
+    }
+    /* ct8 */
+    .box2{
+        height: 400px;
+        width: 1030px;
+        position: absolute;
+        top: 105%;
+        left: 15%;
+        right: 0;
+        z-index:1;
+        border: 3px solid  #0000008a;
+        border-radius: 5px;
+    }
+    .chg3{
+        position: absolute;
+        display: block;
+        top: 3%;
+        left: 33%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-left: 50%; */
+        color:#000000d2;
+        transition: 0.5s ease;
+    }
+    .chg3:hover{
+        position: absolute;
+        display: block;
+        top: 3%;
+        left: 33%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-left: 50%; */
+        color:#000c3f;
+        transition: 0.5s ease;
+    }
+    .part311{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 13%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part311:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 13%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part312{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 25%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part312:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 25%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part313{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 35%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part313:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 35%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    
+    }
+    .part314{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 45%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part314:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 45%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part315{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 55%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part315:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 55%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part316{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 65%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part316:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 65%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .chg4{
+        position: absolute;
+        display: block;
+        top: 75%;
+        left: 34%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-left: 50%; */
+        color:#000000d2;
+        transition: 0.5s ease;
+    }
+    .part411{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 85%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part411:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 85%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part412{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 95%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part412:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 95%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part413{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 105%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part413:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 105%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part415{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 125%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part415:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 125%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    .part414{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 115%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000a4;
+        text-decoration: none;
+        padding: 2px 5px 2px 5px;
+        transition: all 0.5s ease;
+    }
+    .part414:hover{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position: absolute;
+        display: block;
+        top: 115%;
+        left: 36%;
+        font-weight: 700;
+        font-size: 25px;
+        /* margin-right: 50%; */
+        color:#000000;
+        transition: all 0.5s ease ;
+        background-color: #72d5ff5b;
+        border-radius: 0px 10px 10px 0px;
+        padding:2px 25px 2px 25px;
+    }
+    /* .ct8{
+        margin-top: 65px;
+        max-height: 325px;
+        overflow-y: auto;
+       
+        position: absolute;
+        display: block;
+        z-index: -4;
+        left: -5px;
+        width: 900px;
+        height: 400px;
+        transition: 0.5 ease;
+        top: 
+    } */
+    .ct8{
+        margin-top: 10px;
+        max-height: 325px;
+        overflow-y: auto;
+        position: absolute;
+        display: block;
+        z-index: -4;
+        left: -5px;
+        width: 1030px;
+        height: 400px;
+        transition: 0.5 ease;
+    }
+    .ct8::-webkit-scrollbar{
+        /* left: -5px; */
+        width: 7px;
+        transition: 0.5 ease;
+    }
+    .ct8::-webkit-scrollbar-thumb{
+        background-color: #0202025b;
+        border-radius: 10px;
+        width: 10px;
+    }
+    .ct8::-webkit-scrollbar-thumb:hover{
+        background-color: #000000ab;
+        width: 10px;
+        transition: 0.5 ease ;
+    }
+    
+    </style>
+</head>
+<body>
+    <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+    <script>
+        const tudong_chatbox = new TuDongChat('jvopid51ezPfb_7aQTur8')
+        tudong_chatbox.initial()
+    </script>
+    <header>
+        <h1 class="thuvien">HÓA HỌC THCS TT LHT</h1> 
+        <div class="hamburger" onclick="toggleMenu()">
+            MENU
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li>
+                    <a href="ThuVienHoaHocTHCSTTLHT.html">
+                    Trang chủ
+                    </a>
+                </li>
+                <li>
+                    <a href="ct7.html"><div class="home">Kiến thức</div></a>
+                </li>
+                <li><a href="baitap.html">Bài tập</a></li>
+                <li><a href="BangNguyenToTHCSTTLHT.html">Bảng Các Nguyên Tố</a>
+                </li>
+                <li><a href="#">Phản ứng</a>
+                    <ul>
+                        <li><a href="Web_PhanUngDepMat.html">Những phản ứng thực tế</a></li>
+                        <li><a href="Web_PhanUngChuongTrinh.html">Những phản ứng trong chương trình</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="background">
+        <img src="hinh-nen-thi-nghiem-hoa-hoc_093825847.jpg" alt="Hình nền">    
+    </div>
+
+    <div class="container"></div>
+   <div class="product"></div>
+    <div class="gt">
+        NỘI DUNG KIẾN THỨC KHOA HỌC TỰ NHIÊN (HÓA HỌC)
+    </div>
+    <div class="box1">
+        <img class="sgk1" src="sgk khtn7.jpg" alt="Hình nền">
+        <div class="chg1">
+            <b>Chương I. </b>Nguyên tử. Sơ lược về bảng nguyên tố
+            <!-- &nbsp; tương đương với một ký tự trống " " -->
+        </div>
+        <a href="NguyentuLop7.html" class="part1"><b>Bài 2</b> Nguyên tử</a>
+        <a href="Nguyentohoahoc7.html" class="part2"><b>Bài 3</b> Nguyên tố hóa học</a>
+        <a href="soluocbnt7.html" class="part3"><b>Bài 4</b> Sơ lược về bảng tuần hoàn các nguyên tố hóa học</a>
+        <div class="chg2">
+            <b>Chương II. </b>Phân tử - Liên kết hóa học
+        </div>
+        <a href="phandonhop.html" class="part21"><b>Bài 5</b> Phân tử-Đơn chất-Hợp chất</a>
+        <a href="lienkethoatri7.html" class="part22"><b>Bài 6</b> Giới thiệu về liên kết hóa học</a>
+        <a href="hoatrict7.html " class="part23"><b>Bài 7</b> Hóa trị và công thức hóa học</a>
+        <a class="downloadsgk7" href="sgkpdf7.pdf" download="SGK Khoa học tự nhiên KNTT lớp 7">[CLICK] Tải Ebook SGK KHTN 7 </a>
+  
+        </div>
+    </div>
+    <div class="box2">
+        <img class="sgk2" src="sgk khtn8.jpg" alt="Hình nền">
+        <!-- <div class="ct8"> -->
+        <div class="ct8">
+            <div class="chg3">
+        <b>Chương I. </b>Phản ứng hóa học
+        <!-- &nbsp; tương đương với một ký tự trống " " -->
+        </div>
+        <a href="phanunghh8.html" class="part311">Bài 2. Phản ứng hóa học</a>
+        <!-- <a href="#" class="part312">+ Nguyên tố hóa học</a>     -->
+        <a href="moltk8.html" class="part312">Bài 3. Mol và tỉ khối chất khí</a>
+        <a href="ddnd8.html" class="part313">Bài 4. Dung dịch và nồng độ</a>
+        <a href="dinhluat8.html" class="part314">Bài 5. Định luật bảo toàn khối lượng</a>
+        <a href="tinhpthh8.html" class="part315">Bài 6. Tính theo phương trình hóa học</a>
+        <a href="tocdoxuctac8.html" class="part316">Bài 7. Tốc độ phản ứng và chất xúc tác </a>
+
+        <div class="chg4">
+            <b>Chương II. </b>Các loại hợp chất vô cơ
+        </div>
+        <a href="acid8.html" class="part411">Bài 8. Acid</a>
+        <a href="baseph.html" class="part412">Bài 9. Base. Thang pH</a>
+        <a href="oxide.html" class="part413">Bài 10. Oxide</a>
+        <a href="muoi8.html" class="part414">Bài 11. Muối</a>
+        <a href="phanbonhh.html" class="part415">Bài 12. Phân bón hóa học</a>
+        </div>
+        </div>
+        <a class="downloadsgk8" href="sgkpdf8.pdf" download="SGK Khoa học tự nhiên KNTT lớp 8">[CLICK] Tải Ebook SGK KHTN 8</a>
+    
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu'); 
+            if (menu.style.display === 'flex' ) {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+        // Thong tin
+        
+        function toggleInfor() {
+            var infor = document.getElementById("boxinfor");
+            if (infor.style.display === "none") {
+                infor.style.display = "block";
+            } else {
+                infor.style.display = "none";
+            }
+            
+        }
+        function toggleRemove(){
+            var remove = document.getElementById("boxinfor");
+            if (remove.style.display === "block") {
+                remove.style.display = "none";
+            } else {
+                remove.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

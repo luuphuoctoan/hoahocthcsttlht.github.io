@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Tuần Hoàn Hóa Học</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    /* max-width: 900px; */
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #21537a;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.container {
+    margin-top: 80px; /* Adjust for fixed header */
+    padding: 20px;
+    margin-right: 50px;
+    margin-left: 30px;
+    margin-top: 100px;
+
+
+}
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); /* Adjust based on the number of columns */
+    gap: 1193px;
+    width: 10px;
+    /* display:block; */
+    position: inherit;
+    padding-top: 10px;
+    /* top: 50px; */
+}
+.periodic-table2 {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    /* top: 50px; */
+}
+.periodic-table-right2{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    right: 20px;
+    z-index: 1;
+    left: 753px;
+    top: -95px;
+    position: relative;
+}
+.periodic-table3 {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    position: relative;
+    top: -95px;
+    /* top: 50px; */
+}
+.periodic-table-right3{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    right: 20px;
+    z-index: 1;
+    left: 753px;
+    top: -190px;
+    position: relative;
+}
+.periodic-table4{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top:440px;
+    position: absolute;
+}
+.periodic-table5{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjust based on the number of columns */
+    gap: 10px;
+    padding-top: 10px;
+    top:550px;
+    position: absolute;
+}
+.element {
+    background-color: #88a9eba5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    top: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+    display: fixed;
+    position: block;
+    right: 2px;
+    width: 76px;
+    margin:center;                                                                         
+}
+.element.kimloai{
+    background-color: #88a9eb48 ;
+}
+.element.phikim{
+    background-color: #ef6ee652;
+}
+.element.khihiem{
+    background-color: #f6b78670;
+}
+.element:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #000e40; 
+}
+.element:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #000e40; 
+}
+.element.clicked {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #000e40; 
+}
+/* Phi Kim */
+.element.phikim:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 170, 255, 0.166);
+    border: 1px solid #72008e; 
+}
+.element.phikim:hover {
+    transform: scale(1.1);
+    background-color: #ef6ee69f;
+    border: 1px solid #72008e; 
+}
+.element.phikim.clicked {
+    transform: scale(1.1);
+    background-color: #ef6ee69f;
+    border: 1px solid #72008e; 
+}
+/* Khí hiếm */
+.element.khihiem:hover {
+    transform: scale(1.1);
+    background-color: #f6b686b3;
+    border: 1px solid #be5404; 
+}
+.element.khihiem:hover {
+    transform: scale(1.1);
+    background-color: #f6b686b3;
+    border: 1px solid #be5404; 
+}
+.element.khihiem.clicked {
+    transform: scale(1.1);
+    background-color: #f6b686b3;
+    border: 1px solid #be5404; 
+}
+/*  */
+.element .number,
+.element .symbol,
+.element .name,
+.element .mass {
+    display: block;
+}
+
+.element-info {
+    display: none;
+    position: fixed;
+    font-size: 19px;
+    top: 34%;
+    left: 11.5%;
+    width: 22%;
+    transform: translate(50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 1001;
+}
+
+.element-info h2 {
+    margin-top: 0;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Màu nền đen mờ */
+    display: none; /* Ban đầu ẩn lớp phủ */
+    z-index: 999;
+}
+/*  */
+
+/*  */
+
+    .image{
+        width: 40%;
+        height: auto;
+        position: absolute;
+        /* display: block; */
+        top: 15px;
+        left: 55%;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bảng Tuần Hoàn Các Nguyên Tố Hóa Học</h1>
+    </header>
+    <div class="container">
+        <div class="periodic-table">
+            <!-- LINE 1 -->
+            <div class="element phikim" data-name="Hydrogen" data-symbol="H" data-number="1" data-mass="1">
+                <span class="number">1</span>
+                <span class="symbol">H</span>
+                <span class="name">Hydrogen</span>
+                <span class="mass">1</span>
+                
+            </div>
+            <div class="element khihiem" data-name="Helium" data-symbol="He" data-number="2" data-mass="4">
+                <span class="number">2</span>
+                <span class="symbol">He</span>
+                <span class="name">Helium</span>
+                <span class="mass">4</span>
+            </div>
+        </div>
+        <!-- LINE 2 -->
+        <div class="periodic-table2">
+            <div class="element kimloai" data-name="Lithium" data-symbol="Li" data-number="3" data-mass="7">
+                <span class="number">3</span>
+                <span class="symbol">Li</span>
+                <span class="name">Lithium</span>
+                <span class="mass">7</span>
+            </div>
+            <div class="element kimloai" data-name="Beryllium" data-symbol="Be" data-number="4" data-mass="9">
+                <span class="number">4</span>
+                <span class="symbol">Be</span>
+                <span class="name">Beryllium</span>
+                <span class="mass">9</span>
+            </div>
+            <!-- Add more elements as needed -->
+            <!-- Example for the last element -->
+        </div>
+        <!-- LINE 2 RIGHT -->
+        <div class="periodic-table-right2">
+            <div class="element phikim" data-name="Boron" data-symbol="B" data-number="5" data-mass="11">
+                <span class="number">5</span>
+                <span class="symbol">B</span>
+                <span class="name">Boron</span>
+                <span class="mass">11</span>
+            </div>
+            <div class="element phikim" data-name="Carbon" data-symbol="C" data-number="6" data-mass="12">
+                <span class="number">6</span>
+                <span class="symbol">C</span>
+                <span class="name">Carbon</span>
+                <span class="mass">12</span>
+            </div>
+            <div class="element phikim" data-name="Nitrogen" data-symbol="N" data-number="7" data-mass="14">
+                <span class="number">7</span>
+                <span class="symbol">N</span>
+                <span class="name">Nitrogen</span>
+                <span class="mass">14</span>
+            </div>
+            <div class="element phikim" data-name="Oxygen" data-symbol="O" data-number="8" data-mass="16">
+                <span class="number">8</span>
+                <span class="symbol">O</span>
+                <span class="name">Oxygen</span>
+                <span class="mass">16</span>
+            </div>
+            <div class="element phikim" data-name="Fluorine" data-symbol="F" data-number="9" data-mass="19">
+                <span class="number">9</span>
+                <span class="symbol">F</span>
+                <span class="name">Fluorine</span>
+                <span class="mass">19</span>
+            </div>
+            <div class="element khihiem" data-name="Neon" data-symbol="Ne" data-number="10" data-mass="20">
+                <span class="number">10</span>
+                <span class="symbol">Ne</span>
+                <span class="name">.Neon.</span>
+                <span class="mass">20</span>
+            </div>
+        </div>
+        <!-- LINE 3 -->
+        <div class="periodic-table3">
+            <div class="element kimloai" data-name="Sodium" data-symbol="Na" data-number="11" data-mass="23">
+                <span class="number">11</span>
+                <span class="symbol">Na</span>
+                <span class="name">Sodium</span>
+                <span class="mass">23</span>
+            </div>
+            <div class="element kimloai" data-name="Magnesium" data-symbol="Mg" data-number="12" data-mass="24">
+                <span class="number">12</span>
+                <span class="symbol">Mg</span>
+                <span class="name">Magnesium</span>
+                <span class="mass">24</span>
+            </div>
+            <!-- Add more elements as needed -->
+            <!-- Example for the last element -->
+        </div>
+        <!-- LINE 3 RIGHT -->
+        <div class="periodic-table-right3">
+            <div class="element kimloai" data-name="Aluminum" data-symbol="Al" data-number="13" data-mass="27">
+                <span class="number">13</span>
+                <span class="symbol">Al</span>
+                <span class="name">Aluminum</span>
+                <span class="mass">27</span>
+            </div>
+            <div class="element phikim" data-name="Silicon" data-symbol="Si" data-number="14" data-mass="28">
+                <span class="number">14</span>
+                <span class="symbol">Si</span>
+                <span class="name">Silicon</span>
+                <span class="mass">28</span>
+            </div>
+            <div class="element phikim" data-name="Phosphorus" data-symbol="P" data-number="15" data-mass="31">
+                <span class="number">15</span>
+                <span class="symbol">P</span>
+                <span class="name">Phosphorus</span>
+                <span class="mass">31</span>
+            </div>
+            <div class="element phikim" data-name="Sulfur" data-symbol="S" data-number="16" data-mass="32">
+                <span class="number">16</span>
+                <span class="symbol">S</span>
+                <span class="name">Sulfur</span>
+                <span class="mass">32</span>
+            </div>
+            <div class="element phikim" data-name="Chlorine" data-symbol="Cl" data-number="17" data-mass="35.5">
+                <span class="number">17</span>
+                <span class="symbol">Cl</span>
+                <span class="name">Chlorine</span>
+                <span class="mass">35.5</span>
+            </div>
+            <div class="element khihiem" data-name="Argon" data-symbol="Ar" data-number="18" data-mass="40">
+                <span class="number">18</span>
+                <span class="symbol">Ar</span>
+                <span class="name">Argon</span>
+                <span class="mass">40</span>
+            </div>
+        </div>
+        <!-- LINE 4 -->
+        <div class="periodic-table4">
+            <div class="element kimloai" data-name="Potassium" data-symbol="K" data-number="19" data-mass="39">
+                <span class="number">19</span>
+                <span class="symbol">K</span>
+                <span class="name">Potassium</span>
+                <span class="mass">39</span>
+            </div>
+            <div class="element kimloai" data-name="Calcium" data-symbol="Ca" data-number="20" data-mass="40">
+                <span class="number">20</span>
+                <span class="symbol">Ca</span>
+                <span class="name">Calcium</span>
+                <span class="mass">40</span>
+            </div>
+            <div class="element kimloai" data-name="Scandium" data-symbol="Sc" data-number="21" data-mass="45">
+                <span class="number">21</span>
+                <span class="symbol">Sc</span>
+                <span class="name">Scandium</span>
+                <span class="mass">45</span>
+            </div>
+            <div class="element kimloai" data-name="Titanium" data-symbol="Ti" data-number="22" data-mass="48">
+                <span class="number">22</span>
+                <span class="symbol">Ti</span>
+                <span class="name">Titanium</span>
+                <span class="mass">48</span>
+            </div>
+            <div class="element kimloai" data-name="Chromium" data-symbol="Cr" data-number="24" data-mass="52">
+                <span class="number">24</span>
+                <span class="symbol">Cr</span>
+                <span class="name">Chromium</span>
+                <span class="mass">52</span>
+            </div>
+            <div class="element kimloai" data-name="Manganese" data-symbol="Mn" data-number="25" data-mass="55">
+                <span class="number">25</span>
+                <span class="symbol">Mn</span>
+                <span class="name">Manganese</span>
+                <span class="mass">55</span>
+            </div>
+            <div class="element kimloai" data-name="Iron" data-symbol="Fe" data-number="26" data-mass="56">
+                <span class="number">26</span>
+                <span class="symbol">Fe</span>
+                <span class="name">Iron</span>
+                <span class="mass">56</span>
+            </div>
+            <div class="element kimloai" data-name="Cobalt" data-symbol="Co" data-number="27" data-mass="59">
+                <span class="number">27</span>
+                <span class="symbol">Co</span>
+                <span class="name">Cobalt</span>
+                <span class="mass">59</span>
+            </div>
+            <div class="element kimloai" data-name="Nickel" data-symbol="Ni" data-number="28" data-mass="59">
+                <span class="number">28</span>
+                <span class="symbol">Ni</span>
+                <span class="name">Nickel</span>
+                <span class="mass">59</span>
+            </div>
+            <div class="element kimloai" data-name="Copper" data-symbol="Cu" data-number="29" data-mass="64">
+                <span class="number">29</span>
+                <span class="symbol">Cu</span>
+                <span class="name">Copper</span>
+                <span class="mass">64</span>
+            </div>
+            <div class="element kimloai" data-name="Zinc" data-symbol="Zn" data-number="30" data-mass="65">
+                <span class="number">30</span>
+                <span class="symbol">Zn</span>
+                <span class="name">Zinc</span>
+                <span class="mass">65</span>
+            </div>
+            <div class="element phikim" data-name="Bromine" data-symbol="Br" data-number="35" data-mass="80">
+                <span class="number">35</span>
+                <span class="symbol">Br</span>
+                <span class="name">Bromine</span>
+                <span class="mass">80</span>
+            </div>
+            
+            <div class="element khihiem" data-name="Krypton" data-symbol="Kr" data-number="36" data-mass="84">
+                <span class="number">36</span>
+                <span class="symbol">Kr</span>
+                <span class="name">Krypton</span>
+                <span class="mass">84</span>
+            </div>
+        </div>
+        <!-- LINE 5 -->
+        <div class="periodic-table5">
+            <div class="element kimloai" data-name="Rubidium" data-symbol="Rb" data-number="37" data-mass="85">
+                <span class="number">37</span>
+                <span class="symbol">Rb</span>
+                <span class="name">Rubidium</span>
+                <span class="mass">85</span>
+            </div>
+            <div class="element kimloai" data-name="Strontium" data-symbol="Sr" data-number="38" data-mass="88">
+                <span class="number">38</span>
+                <span class="symbol">Sr</span>
+                <span class="name">Strontium</span>
+                <span class="mass">88</span>
+            </div>
+            <div class="element kimloai" data-name="Yttrium" data-symbol="Y" data-number="39" data-mass="89">
+                <span class="number">39</span>
+                <span class="symbol">Y</span>
+                <span class="name">Yttrium</span>
+                <span class="mass">89</span>
+            </div>
+            <div class="element kimloai" data-name="Zirconium" data-symbol="Zr" data-number="40" data-mass="91">
+                <span class="number">40</span>
+                <span class="symbol">Zr</span>
+                <span class="name">Zirconium</span>
+                <span class="mass">91</span>
+            </div>
+            <div class="element kimloai" data-name="Niobium" data-symbol="Nb" data-number="41" data-mass="93">
+                <span class="number">41</span>
+                <span class="symbol">Nb</span>
+                <span class="name">Niobium</span>
+                <span class="mass">93</span>
+            </div>
+            <div class="element kimloai" data-name="Silver" data-symbol="Ag" data-number="47" data-mass="108">
+                <span class="number">47</span>
+                <span class="symbol">Ag</span>
+                <span class="name">Silver</span>
+                <span class="mass">108</span>
+            </div>
+            <div class="element kimloai" data-name="Cadmium" data-symbol="Cd" data-number="48" data-mass="112">
+                <span class="number">48</span>
+                <span class="symbol">Cd</span>
+                <span class="name">Cadmium</span>
+                <span class="mass">112</span>
+            </div>
+            <div class="element kimloai" data-name="Indium" data-symbol="In" data-number="49" data-mass="115">
+                <span class="number">49</span>
+                <span class="symbol">In</span>
+                <span class="name">Indium</span>
+                <span class="mass">115</span>
+            </div>
+            <div class="element kimloai" data-name="Tin" data-symbol="Sn" data-number="50" data-mass="119">
+                <span class="number">50</span>
+                <span class="symbol">Sn</span>
+                <span class="name">Tin</span>
+                <span class="mass">119</span>
+            </div>
+            <div class="element kimloai" data-name="Antimony" data-symbol="Sb" data-number="51" data-mass="122">
+                <span class="number">51</span>
+                <span class="symbol">Sb</span>
+                <span class="name">Antimony</span>
+                <span class="mass">122</span>
+            </div>
+            <div class="element phikim" data-name="Tellurium" data-symbol="Te" data-number="52" data-mass="128">
+                <span class="number">52</span>
+                <span class="symbol">Te</span>
+                <span class="name">Tellurium</span>
+                <span class="mass">128</span>
+            </div>
+            <div class="element phikim" data-name="Iodine" data-symbol="I" data-number="53" data-mass="127">
+                <span class="number">53</span>
+                <span class="symbol">I</span>
+                <span class="name">Iodine</span>
+                <span class="mass">127</span>
+            </div>
+            <div class="element khihiem" data-name="Xe" data-symbol="Xenon" data-number="54" data-mass="131">
+                <span class="number">54</span>
+                <span class="symbol">Xe</span>
+                <span class="name">Xenon</span>
+                <span class="mass">131</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+    <!-- PHẦN THÔNG TIN NGUYÊN TỐ -->
+    <div class="element-info" id="element-info">
+        <h2 id="element-name"></h2>
+        <p>Kí hiệu: <span id="element-symbol"></span></p>
+        <p>Số hiệu nguyên tử: <span id="element-number"></span></p>
+        <p>Khối lượng: <span id="element-mass"></span></p>
+         
+        <span id="element-img"><img src=""></span>
+        <!-- <img class="image" src="hydrogen.jpg"> -->
+    </div>
+
+    <!-- PHẦN SCRIPT -->
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.element');
+    const elementInfo = document.getElementById('element-info');
+    const elementName = document.getElementById('element-name');
+    const elementSymbol = document.getElementById('element-symbol');
+    const elementNumber = document.getElementById('element-number');
+    const elementMass = document.getElementById('element-mass');
+    const elementImg = document.getElementById('element-img');
+    elements.forEach(element => {
+        element.addEventListener('click', () => {
+            elementName.textContent = element.dataset.name;
+            elementSymbol.textContent = element.dataset.symbol;
+            elementNumber.textContent = element.dataset.number;
+            elementMass.textContent = element.dataset.mass;
+            elementInfo.style.display = 'block  ';
+        });
+    });
+    elementInfo.addEventListener('click', () => {
+        elementInfo.style.display = 'none';
+    });
+});
+
+//
+document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.element');
+    const elementInfo = document.getElementById('element-info');
+    const elementName = document.getElementById('element-name');
+    const elementSymbol = document.getElementById('element-symbol');
+    const elementNumber = document.getElementById('element-number');
+    const elementMass = document.getElementById('element-mass');
+    const elementImg = document.getElementById('element-img');
+    elements.forEach(element => {
+        element.addEventListener('click', () => {
+            // Remove the 'clicked' class from all elements
+            elements.forEach(el => el.classList.remove('clicked'));
+            // Add the 'clicked' class to the clicked element
+            element.classList.add('clicked');
+            elementName.textContent = element.dataset.name;
+            elementSymbol.textContent = element.dataset.symbol;
+            elementNumber.textContent = element.dataset.number;
+            elementMass.textContent = element.dataset.mass;
+            elementImg.textContent = element.dataset.img;
+            elementInfo.style.display = 'block';
+        });
+    });
+
+    elementInfo.addEventListener('click', () => {
+        elementInfo.style.display = 'none';
+    });
+});
+
+    document.getElementById("myElement").addEventListener("click", function() {
+            var img = document.getElementById("image");
+            if (img.style.display === "none") {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        });
+    </script>
+    
+</body>
+</html>
