@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Hóa Học</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 1650px;
+            background-color: hsl(237, 61%, 83%);
+            /* footer */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main{
+            flex: 1;
+        }
+        header {
+            background-color: #21537a;
+            color: #fff;
+            padding: 1px 0;
+            padding-left: 15px;
+            text-align: left;
+            left: 20px;
+            height: 70px;
+            display: block;
+            position: flex;
+        }
+        .container {
+            top: 10px;
+            width: 90%;
+            left: 10%;
+            padding-right: 10%;
+            margin: auto;
+            /* overflow: hidden; */
+            display: block;
+            position: absolute;
+        }
+        .home{
+            /* color:#003b67; */
+            color:#efe11e;
+            /* background-color: #3b76b586; */
+            border-radius: 5px;
+            
+        }
+
+        .product {
+            top: 20em;
+            border: 1px solid #ccc;
+            padding: 2px;   
+            left: 2%;
+            right: 2%;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            position: absolute;
+            height: 100px;
+        }
+        .product h2 {
+            color: #333;
+            padding: 3px;
+        }
+        .product p {
+            color: #666;
+            padding-left: 5px;
+        }
+        .product .price {
+            color: #b12704;
+            font-size: 18px;
+        }
+
+        .background img{
+            z-index: -1;
+            width: 90%;
+            left: 5%;
+            right: 5%;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+           display: block;
+           position: absolute;
+        }
+        @media (max-width: 700px) {
+            .container{
+                top: 10%;
+                width: 90%;
+                left: 2.5%;
+                right: 2.5%;
+                margin: auto;
+                /* overflow: hidden; */
+                /* display: block;
+                position: absolute; */
+            }
+            .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }
+        @media (max-width: 820px) {
+        .product {
+            margin: center; /* Căn giữa phần tử */
+            width: 93%; /* Chiếm 95% chiều rộng trên thiết bị điện thoại */
+            left: 3%; /* Căn giữa phần tử */
+            right: 3%; /* Căn giữa phần tử */
+            top: 25%; /* Giảm khoảng cách từ trên xuống */
+            padding: 3px; /* Giảm padding để phù hợp với màn hình nhỏ */
+            /* height: 75%; */
+            height: 100%;
+        }
+        .bgmo{
+                position: absolute;
+                display: flex;
+                height: 95px;
+                top: 8.5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+                
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 25px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+    }
+        @media (min-width: 820px) {
+            .product {
+                top: 40%;
+                width:95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+            .bgmo{
+                position: absolute;
+                display: flex;
+                height:200px;
+                top: 5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            
+        }
+        .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }
+        @media (min-width: 1024px){
+            /* máy tính/laptop */
+            .product{
+                height: 40%;
+                top: 65% ;
+                width: 81%;
+                left: 3%;
+                right: 3%;
+                padding: 7%;
+                height: 100%;
+            }
+            .bgmo{
+                position: absolute;
+                display: flex;
+                height: 276px;
+                top: 9.5%;
+                width: 76%;
+                left: 5%;
+                right: 5%;
+                padding: 7%;
+                /* height: 50%; */
+                background-color: #00000094;
+                
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+            .infor{
+            position: absolute;
+            display: block;
+            top: 5px;
+        }
+        }   
+        @media (min-height: 1366px){
+            .product{
+                height: 30%;
+                top: 25% ;
+                width: 95%;
+                left: 3%;
+                right: 3%;
+                padding: 3px;
+                height: 100%;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+
+        @media (max-width: 800px) and (max-height: 645px) {
+            .hamburger {
+                display: flex;
+                left: 75%;
+                text-align: center;
+                width: 15%;
+            }
+            .menu{
+                display: none;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        @media(min-width:800px) and (max-width: 645px) {
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px; */
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%;
+            }
+            .menu {
+                display: none;
+                width: auto;
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 4;
+            top: 30px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        /* menu */
+        .menu {
+            font-family: Arial, sans-serif;
+            z-index: 2;
+            display: flex;
+            text-align: center;
+            font-size: 25px;
+            top: 3%;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding-right: -30px;
+            left: 60%;
+            position: relative;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+         
+        }
+        .menu li {
+            position: relative;
+            display: inline-block;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 35px;
+            display: block;
+            padding: 7px 25px 7px 25px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width:auto;
+        }
+        .menu a:hover {
+            background-color: #3b76b586;
+            border-radius: 20px 10px 20px 0px;
+            width: auto;
+        }
+        .menu li:hover > a {
+            color:#efe11e;
+            /* background-color:; */
+        }
+        .menu ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #15376db1;
+            visibility: hidden;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, visibility 0.3s ease;
+        }
+        .menu ul ul li {
+            display: block;
+        }
+        .menu ul ul a {
+            padding: 10px;
+            padding-right: 6px;
+        }
+        .menu li:hover > ul {
+            display: block;
+            /* opacity: 1; */
+            max-height: 500px;
+            visibility: visible;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: rgb(43, 43, 43);
+            left: 80%;
+            top: 3%;
+            position: absolute;
+            border: 2px solid rgb(80, 76, 76);
+            padding: 2px 10px 2px 10px;
+            border-radius: 5px;
+            background-color: #c4e1f7;
+            width: 20%;
+        }
+        .hamburger div {
+            left: 88%;
+            display: flex;
+            position: relative;
+            top: 23px; 
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            margin: 3px;
+        }
+        .hamburger:hover {
+            color:#176803
+        }
+        .hamburger div:hover{
+            background-color: #000000;
+        }
+        /* Moblie S */
+        @media (max-width: 200px) {
+            /* .thuvien{
+                font-size: 110%;
+                top: 2%;
+                display: block;
+                position: absolute;
+            } */
+            .hamburger{
+                top: 10%;
+                position: absolute;
+                display: flex;
+            }
+            .menu{
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                /* align-items: flex-start; */
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+                /* font-size: 10px; */
+            }
+            .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 4;
+            top: 20px;
+            text-align: center;
+            font-size: 15px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+            .infor {
+                top: 0px;
+            }
+        }
+        /*  */
+        @media (max-width: 320px){
+            .infor{
+                top: 10px;
+                left: 5px;
+            }
+        }
+        @media (min-width:915px){
+            .menu {
+            font-family: Arial, sans-serif;
+            /* z-index: 2; */
+            display: flex;
+            text-align: center;
+            font-size: 20px;
+            top: 19px;
+            justify-content: flex-end;
+            /* background-color: #333; */
+            padding: 0;
+            left: 25%;
+            right: 2%;
+            position: absolute;
+
+        }
+        .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 4;
+            top: 20px;
+            text-align: center;
+            font-size: 15px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .infor{
+            top: 50px;
+        }
+        }
+        /*  */
+        @media (max-width: 915px) {
+            .menu{
+                display:none;
+            }
+            .thuvien{
+                font-size: 135%;
+                top: 2%;
+                display: flex;
+                position: absolute;
+
+            }
+            .menu {
+                z-index: 3;
+                top: 50px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+                background-color: #4b9bf1cc;
+                border-radius: 5px;
+                width: auto;
+            }
+            .menu ul {
+                flex-direction: column;
+                width: 50%;
+               
+            }
+            .menu li {
+                display: block;
+                border-bottom: 1px solid white;
+            }
+            .menu ul ul {
+                position: block;
+            }
+            .hamburger {
+                display: block;
+                left: 75%;
+                /* padding-right: 2px;
+                /* left:  */
+                /* padding: 2px; */
+                text-align: center;
+                width: 15%; 
+             }
+             .infor{
+                top: 10px;
+             }
+             .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            text-align: center;
+            font-size: 10px;
+            color:rgba(255, 255, 255, 0.845);
+            }
+        }
+        .gt{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 90px;
+            text-align: center;
+            font-size: 53px;
+            color:rgba(255, 255, 255, 0.845);
+        }
+        .gt:hover{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: bold;
+            font-weight: bolder;
+            display: block;
+            position: relative;
+            z-index: 1;
+            top: 90px;
+            text-align: center;
+            font-size: 53px;
+            color:rgb(255, 255, 255);
+            /* transform: ; */
+            transition: 2s ease;
+        }
+        .gtt{
+            font-family: 'Courier New', Courier, monospace;
+            display:block;
+            font-weight: bold;
+            left: 26%;
+            position: absolute;
+            z-index: 1;
+            top: 32%;
+            text-align: center;
+            font-size: 30px;
+            color:rgb(255, 255, 255);
+        }
+        .infor {
+            z-index: 5;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: absolute;
+            display: block;
+            /* left: 40%; */
+            align-self: center;
+            top: 50%;
+            background-color: #cff3002c;
+            color:#001945d4;
+            padding: 3px 25px 3px 25px;
+            font-size: 25px;
+            border-radius: 8px;
+            border: 2px solid #ffffffaf;
+            text-decoration: none;
+            border: 0 solid;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+            outline: 3px solid;
+            outline-color: rgba(252, 236, 12, 0.5);
+            outline-offset: 0px;
+            text-shadow: none;
+             transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+             cursor: pointer;
+            /* color:#666; */
+            /* color: white; */
+        
+        }
+        .infor:hover {
+          border: 1px solid;
+          box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+          outline-color: rgba(255, 255, 255, 0);
+          outline-offset: 15px;
+          text-shadow: 1px 1px 2px #427388; 
+          color:#ffffff;
+        }
+        .infor div {
+            left: 88%;
+            display: block;
+            position: absolute;
+            top: 5px; 
+            width: 20px;
+            height: 50px;
+            background-color: rgb(161, 42, 42);
+        }
+        #boxinfor{
+            z-index: 5;
+            display: none   ;
+            left: 19%;
+            background-color: #e3e3e3;
+            position: absolute;
+            align-items: center;
+            top: 15%;
+            width: 900px;
+            height: 350px;
+            border-radius: 10px;
+            border: 2px solid #21537a;
+            /* background-color: #427388; */
+            transition: opacity 0.5s ease-in-out;
+        }
+        #boxinfor.show{
+            display: block;
+            opacity: 1;
+        }
+        .tittle1{
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            display: block;
+            font-weight: 750;
+            color:#21537a;
+            font-size: 28px;
+            top: 3%;
+            left: 5%;
+        }
+        .tittle2{
+            font-family:"Times New Roman", Times, serif;
+            position: absolute;
+            display: block;
+            font-weight: 500;
+            font-size: 22px;
+            top: 21%;
+            left: 3%;
+        }
+        .lop_trg{
+            font-family:'Times New Roman', Times, serif;
+            position: absolute;
+            display: block;
+            font-weight: 500;
+            font-size: 22px;
+            top: 30%;
+            left: 32%;
+            /* padding-right: -20px; */
+        }
+        .gthieu{
+            position: absolute;
+            display: block;
+            font-weight: 500;
+            font-size: 22px;
+            top: 60%;
+            left: 3%;
+            font-family:'Times New Roman', Times, serif;
+            text-align: justify;
+            margin-right: 20px;
+        }
+        .remove{
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            cursor: pointer;
+            font-style: bold;
+            position: absolute;
+            display:block;
+            top: 85%;
+            left: 85%;
+            padding:2px 25px 2px 25px;;
+            font-size: 25px;
+            border: 2px solid #427388;
+            border-radius: 5px;
+            color:#21537a;
+            transition: 0.5s ease;
+            /* transition: border 0.5s ease; */
+        }
+        .remove:hover{
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            cursor: pointer;
+            font-style: bold;
+            position: absolute;
+            display:block;
+            top: 83%;
+            left: 85%;
+            padding:2px 25px 2px 25px;
+            font-size: 25px;
+            border: 3px solid #053b52;
+            border-radius: 5px; 
+            color:#21537a;
+            background-color: #7bb0c73c;
+            transition: 0.5s ease;
+            /* transition: border 0.5s ease; */
+        }   
+        .adress{
+            font-family: 'Times New Roman', Times, serif;
+            position: absolute;
+            display: block;
+            font-weight: 500;
+            font-size: 22px;
+            top: 50%;
+            left: 3%;
+            /* padding-right: -20px; */
+        }
+        .box1{
+            position: absolute;
+            display: block;
+            width: 26%;
+            height: 400px;
+            background-color:#e3e0e0cc;
+            z-index: 5;
+            top: 70%;
+            left: 5%;
+            border-radius: 5px;
+            border: 2px solid #21537aac;
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box1:hover{
+            box-shadow: 5px 5px 5px 5px rgba(128, 128, 128, 0.755);
+            /* transition: 0.5s ease-out; */
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box2{
+            position: absolute;
+            display: block;
+            width: 545px;
+            height: 400px;
+            background-color:#e3e0e0cc;
+            /* z-index: 5; */
+            top: 70%;
+            left: 32%;
+            border-radius: 5px;
+            border: 2px solid #21537aac;
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box2:hover{
+            box-shadow: 5px 5px 5px 5px rgba(128, 128, 128, 0.755);
+            /* transition: 0.5s ease-out; */
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box3{
+            position: absolute;
+            display: block;
+            width: 25%;
+            height: 400px;
+            background-color:#e3e0e057;
+            z-index: 5;
+            top: 77%;
+            left: 70%;
+            border-radius:5px;
+            border: 2px solid #21537aac;
+            transition: transform 1s ease, box-shadow 1s ease;
+
+        }
+        .box3:hover{
+            box-shadow: 5px 5px 5px 5px rgba(128, 128, 128, 0.755);
+            /* transition: 0.5s ease-out; */
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box4{
+            position: absolute;
+            display: block;
+            width: 25%;
+            height: 400px;
+            background-color:#e3e0e057;
+            z-index: 5;
+            top: 133%;
+            left: 70%;
+            border-radius: 5px;
+            border: 2px solid #21537aac;
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box4:hover{
+            box-shadow: 5px 5px 5px 5px rgba(128, 128, 128, 0.755);
+            /* transition: 0.5s ease-out; */
+            transition: transform 1s ease, box-shadow 1s ease;
+        }
+        .box5{
+            align-self: center;
+            position: absolute;
+            display: block;
+            width: 48.5%;
+            height: 440px;
+            background-color:#8198ff25;
+            z-index: 5;
+            top: 128%;
+            left: 15%;
+            border-radius: 1px;
+            border: 2px solid #000000ac;
+            border-radius: 20px;
+        }
+        .box5 video{
+            position: absolute;
+            display: block;
+            border-radius: 20px;
+            left: 2px;
+        }
+        .box5 p{
+            position: absolute;
+            display: block;
+            top: 88%;
+            left: 5%;
+            font-weight: 700;
+            font-size: 23px;
+            color:#000c3f;
+        }
+        .line1{
+            height: 15%;
+            background-color: #0022ff30;
+            width: 50%;
+            position: absolute;
+            display: block;
+            border-right: 2px solid #000c3f;
+            border-bottom: 2px solid #000c3f;
+            border-radius: 20px 0px 0px 0px;
+            margin-right: 70%;
+            
+        }
+        .textline1{
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            position: absolute;
+            top: 15px;  
+            left: 3%;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 900;
+            color:#000c3f;
+        }
+        .line2{
+            height: 15%;
+            background-color: #fff70067;
+            width: 50%;
+            position: absolute;
+            display: block;
+            border-left: 2px solid #000c3f;
+            border-radius: 0px 20px 0px 0px;
+            margin-left: 50%;
+            font-size: 25px;
+            text-align: center;
+            border-bottom: 2px solid #000c3f;
+        }
+        .line3{
+            height: 100%;
+            /* background-color: #ff0000; */
+            width: 2px;
+            background-color: #000c3f;
+            position: absolute;
+            display: block;
+            left: 50%;
+        }
+        .textline2{
+            top: 15px;
+            font-size: 20px;
+            text-align: center; 
+            display: block;
+            position: absolute;
+            left:2%;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 900;
+            color:#000c3f;
+        }
+    .mendeleev{
+        position:absolute;
+        display: fixed;
+        height: 220px;
+        left: 10px;
+        top: 50px;
+        border-radius: 5px;    
+    } 
+    .men1{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        color:#053b52;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+        font-size: 25px;
+        margin-left: -5%;
+        margin-right: 5px;
+        text-align: right;
+    }
+    .men2{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 285px;
+        color:#053b52;
+        font-family:cursive;
+        font-weight: 600;
+        font-size: 25px;
+        text-align: center;
+    }
+    .men3{
+        display: block;
+        position: absolute;
+        left: 25%;
+        top: 35px;
+        color:#053b52;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 25px;
+        text-align: center;
+    }
+    .men4{
+        display: block;
+        position: absolute;
+        font-weight: 700;
+        font-size: 20px;
+        padding:5px 75px 5px 62px;
+        background-color: #72d5ff7d;
+        text-decoration: none;
+        top: 360px;
+        color:rgba(43, 43, 43, 0.666);
+    }
+    .menu4:hover{
+        display: block;
+        position: absolute;
+        font-weight: 700;
+        font-size: 20px;
+        padding:5px 75px 5px 62px;
+        background-color: #9dd8f1db;
+        text-decoration: none;
+        top: 350px;
+        color:rgb(0, 0, 0);
+        transition: 1s ease;
+    }
+    /* @keyframes slide{
+    
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-650px); animation-delay: 10s;}
+    50% { transform: translateX(-1250px); animation-delay: 10s;}
+    75% { transform: translateX(-1800px); animation-delay: 10s; }
+    100% { transform: translateX(0);  animation-delay: 10s}
+    } */
+    .men41{
+        text-decoration: none;
+        color: rgba(43, 43, 43, 0.666);
+    }
+    .menu4:hover{
+        background-color: #21537a;
+        color:rgb(0, 0, 0);
+        transition: 2s ease;
+    }
+    .men5{
+        position: absolute;
+        display: block;
+        top: 20%;
+        right: 1%;
+        left: 47%;
+        text-align: justify;
+        font-size: 20px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    /* Box 4 */
+    .mendeleev{
+        position:absolute;
+        display: fixed;
+        height: 220px;
+        left: 10px;
+        top: 50px;
+        border-radius: 5px;    
+    } 
+    .men1{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        color:#053b52;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+        font-size: 25px;
+        margin-left: -5%;
+        margin-right: 5px;
+        text-align: right;
+    }
+    .men2{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 285px;
+        color:#053b52;
+        font-family:cursive;
+        font-weight: 600;
+        font-size: 25px;
+        text-align: center;
+    }
+    .voi2{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 288px;
+        color:#053b52;
+        font-family:cursive;
+        font-weight: 600;
+        font-size: 23px;
+        text-align: center;
+    }
+    .men3{
+        display: block;
+        position: absolute;
+        left: 25%;
+        top: 35px;
+        color:#053b52;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 25px;
+        text-align: center;
+    }
+    .men4{
+        display: block;
+        position: absolute;
+        font-weight: 700;
+        font-size: 20px;
+        padding:5px 75px 5px 62px;
+        background-color: #72d5ff7d;
+        text-decoration: none;
+        top: 360px;
+        color:rgba(43, 43, 43, 0.666);
+    }
+    .menu4:hover{
+        display: block;
+        position: absolute;
+        font-weight: 700;
+        font-size: 20px;
+        padding:5px 75px 5px 62px;
+        background-color: #9dd8f1db;
+        text-decoration: none;
+        top: 350px;
+        color:rgb(0, 0, 0);
+        transition: 1s ease;
+    }
+    .men41{
+        text-decoration: none;
+        color: rgba(43, 43, 43, 0.666);
+    }
+    .menu4:hover{
+        background-color: #21537a;
+        color:rgb(0, 0, 0);
+        transition: 2s ease;
+    }
+    .men5{
+        position: absolute;
+        display: block;
+        top: 20%;
+        right: 1%;
+        left: 47%;
+        text-align: justify;
+        font-size: 20px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .hinhanhbox1{
+        height: 100%;
+        width: 100%;
+    }
+    .hinhanhbox2{
+       
+        height: 100%;
+        width: 100%;
+    }
+    .text1{
+        position: absolute;
+        display: block;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        color: #053b52;
+        /* text-align: center */
+        font-weight: 900;
+        left: 70.2%;
+        top: 67%;
+        margin-left: 0px;
+        margin-right: 75px;
+        text-align: center;
+        background-color: #97cde348;
+        padding: 5px 40px 5px 35px;
+        border-radius: 5px;
+    }
+    .text1:hover{
+        position: absolute;
+        display: block;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        color: #000c3f;
+        /* text-align: center */
+        font-weight: 900;
+        left: 70.2%;
+        top: 67%;
+        margin-left: 0px;
+        margin-right: 75px;
+        text-align: center;
+        background-color: #97cde392;
+        padding: 5px 40px 5px 35px;
+        border-radius: 5px;
+        /* border: 1px solid #053b52; */
+        transition: 1s ease;
+    }
+    /* ct 7 */
+    
+    .ct8{
+        margin-top: 65px;
+        max-height: 325px;
+        overflow-y: auto;
+        /* padding-right: -25px; */
+        position: absolute;
+        display: block;
+        z-index: -4;
+        left: -5px;
+        width: 900px;
+        height: 400px;
+        transition: 0.5 ease;
+        /* top:  */
+    }
+    .ct8::-webkit-scrollbar{
+        /* left: -5px; */
+        width: 7px;
+        transition: 0.5 ease;
+    }
+    .ct8::-webkit-scrollbar-thumb{
+        background-color: #0202025b;
+        border-radius: 10px;
+        width: 10px;
+    }
+    .ct8::-webkit-scrollbar-thumb:hover{
+        background-color: #000000ab;
+        width: 10px;
+        transition: 0.5 ease ;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+    <script>
+        const tudong_chatbox = new TuDongChat('jvopid51ezPfb_7aQTur8')
+        tudong_chatbox.initial()
+    </script>
+    <header>
+        <h1 class="thuvien">HÓA HỌC THCS TT LHT</h1> 
+        <div class="hamburger" onclick="toggleMenu()">
+            MENU
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li>
+                    <a href="ThuVienHoaHocTHCSTTLHT.html">
+                    <div class="home">Trang chủ</div> 
+                    </a>
+                </li>
+                <li>
+                    <a href="ct7.html">Kiến thức</a>
+                </li>
+                <li><a href="baitap.html">Bài tập</a></li>
+                <li><a href="BangNguyenToTHCSTTLHT.html">Bảng Các Nguyên Tố</a>
+                </li>
+                <li><a href="#">Phản ứng</a>
+                    <ul>
+                        <li><a href="Web_PhanUngDepMat.html">Những phản ứng thực tế</a></li>
+                        <li><a href="Web_PhanUngChuongTrinh.html">Những phản ứng trong chương trình</a></li>
+                    </ul>
+                </li>
+                
+                
+                
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="background">
+        <img src="hinh-nen-thi-nghiem-hoa-hoc_093825847.jpg" alt="Hình nền">    
+    </div>
+    <audio id="myAudio" autoplay>
+        <source src="intro.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <div class="container"></div>
+   <div class="product"></div>
+    <div class="gt">
+        CHÀO MỪNG ĐẾN VỚI WEBSITE HÓA HỌC
+    </div>
+    <div class="gtt">
+        <marquee>TRUNG HỌC CƠ SỞ THỊ TRẤN LỊCH HỘI THƯỢNG</marquee>
+    </div>
+    <!-- <div class="infor" onclick="toggleInfor()">
+        Thông tin Website
+    </div> -->
+    <button onclick="toggleInfor()" class="infor">Thông tin web</button>
+    <div id="boxinfor">
+        <div class="tittle1">
+            GIỚI THIỆU VỀ WEBSITE HÓA HỌC THCS TT Lịch Hội Thượng
+        </div>
+        <div class="tittle2">
+            Tác giả của trang website: <b>Lưu Phước Toàn</b> 
+            <!-- </divdiv class="lop_trg">Lớp 9A2 - Trường THCS Thị Trấn Lịch Hội Thượng</div> -->
+        </div>
+        <div class="lop_trg">Học sinh <b>lớp 9A2 - Trường THCS TT Lịch Hội Thượng <br> Năm học 2024-2025</b></div>
+        <div class="adress">
+            Địa chỉ: <b>https://hoahocTHCSTTLHT.com </b> [Dự kiến]
+        </div>
+        <div class="gthieu">
+            Website môn <b>KHTN (phân môn Hóa học) THCS TT LHT</b> là một trang web học tập về lĩnh vực hóa học vô cơ dựa trên sách giáo khoa 
+            Khoa Học Tự Nhiên (phân môn Hóa học) theo chương trình GDPT 2018, giúp cho các bạn có niềm đam mê về bộ môn hóa học.
+            Cũng như hỗ trợ các bạn trong quá trình học tập.
+        </div>
+        <button onclick="toggleRemove()" id="remove" class="remove">
+            Thoát
+        </button>
+    </div>
+    <div class="box1">
+        <a href="Web_PhanUngDepMat.html">
+            <img class="hinhanhbox1" src="anh3.jpg" alt="Hình 1">
+        </a>
+    </div>
+    <div class="box2">
+              <img class="hinhanhbox2" src="hoahoc2.png" alt="Hình 1">
+              <!-- <img src="helium.jpg" alt="Hình 4">  -->
+    </div>
+    <div class="box3">
+        <img class="mendeleev"src="Mendeleev.jpg">
+        <div class="men1">
+            Cha đẻ Bảng tuần hoàn nguyên 🧪tố hóa học🧑‍🔬
+        </div>
+        <div class="men2">
+            Dmitri Ivanovich Mendeleev 
+            <div class="men3">
+                (1834-1907)
+            </div>
+        </div>
+        <div class="men4">
+            <a class="men41" href="https://vi.wikipedia.org/wiki/Dmitri_Mendeleev" target="_blank">Xem thêm về Mendeleev</a>
+        </div>
+        <div class="men5">
+            Ông là nhà khoa học người Nga, là người phát minh ra Bảng nguyên tố được công bố vào năm 1869. Mở ra một kỷ nguyên mới trong lĩnh vực hóa học.
+        </div>
+    </div>
+    <div class="box4">
+        <img class="mendeleev"src="Lavoisier.jpg">
+        <div class="men1">
+            Cha đẻ của ngành Hóa học hiện đại🧑‍🔬
+        </div>
+        <div class="voi2">
+            Antoine-Laurent de Lavoisier 
+            <div class="men3">
+                (1743-1794)
+            </div> 
+        </div>
+        <div class="men4">
+            <a class="men41" href="https://vi.wikipedia.org/wiki/Antoine_Lavoisier" target="_blank">Xem thêm về Lavoisier</a>
+        </div>
+        <div class="men5">
+            Ông là nhà hóa học người Pháp, là người xây dựng ra <b>Định luật bảo toàn khối lượng</b> và cách gọi tên các chất hóa học một cách có hệ thống.
+        </div>
+    </div>
+    <div class="box5">
+        <video width="auto" height="400" controls>
+            <source src="Nhà khoa học.mp4" type="video/mp4">
+        </video>
+        <p>Top 10 nhà khoa học vĩ đại góp vào nền hóa học thế giới</p>
+    </div>
+
+<!--     
+    <div class="box5">
+        <div class="line1">
+            <div class="textline1">Chương trình KHTN (Hóa học) LỚP 7</div> 
+        </div>
+        <div class="line2">
+            <div class="textline2">Chương trình KHTN (Hóa học) LỚP 8</div>
+        </div>
+        <div class="line3"></div>
+       
+        <div class="chg1">
+            Nguyên tử. Sơ lược về bảng nguyên tố
+           
+        </div>
+        <a href="NguyentuLop7.html" class="part1">+ Nguyên tử</a>
+        <a href="Nguyentohoahoc7.html" class="part2">+ Nguyên tố hóa học</a>
+        <a href="soluocbnt7.html" class="part3">+ Sơ lược về bảng tuần hoàn các nguyên tố hóa học</a>
+        <div class="chg2">
+            Phân tử - Liên kết hóa học
+        </div>
+        <a href="phandonhop.html" class="part21">+ Phân tử-Đơn chất-Hợp chất</a>
+        <a href="lienkethoatri7.html" class="part22">+ Giới thiệu về liên kết hóa học</a>
+        <a href="hoatrict7.html " class="part23">+ Hóa trị và công thức hóa học</a>
+       
+        <div class="ct8">
+            <div class="chg3">
+            Phản ứng hóa học
+         
+        </div>
+        <a href="phanunghh8.html" class="part311">+ Phản ứng hóa học</a>
+        
+        <a href="moltk8.html" class="part312">+ Mol và tỉ khối chất khí</a>
+        <a href="ddnd8.html" class="part313">+ Dung dịch và nồng độ</a>
+        <a href="dinhluat8.html" class="part314">+ Định luật bảo toàn khối lượng</a>
+        <a href="tinhpthh8.html" class="part315">+ Tính theo phương trình hóa học</a>
+        <a href="tocdoxuctac8.html" class="part316">+ Tốc độ phản ứng và chất xúc tác </a>
+
+        <div class="chg4">
+            Các loại hợp chất vô cơ
+        </div>
+
+        <a href="acid8.html" class="part411">+ Acid</a>
+        <a href="baseph.html" class="part412">+ Base. Thang pH</a>
+        <a href="oxide.html" class="part413">+ Oxide</a>
+        <a href="muoi8.html" class="part414">+ Muối</a>
+        <a href="phanbonhh.html" class="part415">+ Phân bón hóa học</a>
+        </div>
+         </div> -->
+        
+    <div class="text1">
+        NHỮNG NGƯỜI ĐÓNG GÓP VÀO NỀN HÓA HỌC THẾ GIỚI 
+    </div>
+    <div class="footer">
+        <!-- <p>Gmail: luuphuoctoanlht3@gmail.com</p> -->
+    </div>
+    <script>
+        // âm thanh nền
+        var audio = document.getElementById('myAudio');
+        audio.volume = 0.25; // Điều chỉnh âm lượng ở mức 50%
+        audio.play();
+        audio.onended = function() {
+            
+            audio.currentTime = 0;
+            audio.pause();
+        };
+        //
+        function toggleMenu() {s
+            var menu = document.getElementById('menu'); 
+            if (menu.style.display === 'flex' ) {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+        // Thong tin
+        
+        function toggleInfor() {
+            var infor = document.getElementById("boxinfor");
+            if (infor.style.display === "none") {
+                infor.style.display = "block";
+            } else {
+                infor.style.display = "none";
+            }
+            
+        }
+        function toggleRemove(){
+            var remove = document.getElementById("boxinfor");
+            if (remove.style.display === "block") {
+                remove.style.display = "none";
+            } else {
+                remove.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
